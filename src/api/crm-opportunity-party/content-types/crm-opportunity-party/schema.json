@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_opportunity_parties",
+  "info": {
+    "singularName": "crm-opportunity-party",
+    "pluralName": "crm-opportunity-parties",
+    "displayName": "CRM Opportunity Party"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "object_id": {
+      "type": "string"
+    },
+    "parent_object_id": {
+      "type": "string"
+    },
+    "party_id": {
+      "type": "string"
+    },
+    "role_category_code": {
+      "type": "string"
+    },
+    "role_code": {
+      "type": "string"
+    },
+    "main_indicator": {
+      "type": "boolean"
+    },
+    "opportunity_id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_activities",
+  "info": {
+    "singularName": "crm-activity",
+    "pluralName": "crm-activities",
+    "displayName": "CRM Activity"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "activity_id": {
+      "type": "string",
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "document_type": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "text"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "due_date": {
+      "type": "datetime"
+    },
+    "completion_date": {
+      "type": "datetime"
+    },
+    "completion_percent": {
+      "type": "string"
+    },
+    "actual_duration": {
+      "type": "string"
+    },
+    "planned_duration": {
+      "type": "string"
+    },
+    "full_day_indicator": {
+      "type": "boolean",
+      "default": false
+    },
+    "location": {
+      "type": "string"
+    },
+    "activity_status": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "initiator_code": {
+      "type": "string"
+    },
+    "sales_organization": {
+      "type": "string"
+    },
+    "distribution_channel": {
+      "type": "string"
+    },
+    "division": {
+      "type": "string"
+    },
+    "account_uuid": {
+      "type": "string"
+    },
+    "primary_contact_uuid": {
+      "type": "string"
+    },
+    "phone_call_category": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "customer_group": {
+      "type": "string"
+    },
+    "ranking": {
+      "type": "string"
+    },
+    "customer_timezone": {
+      "type": "string"
+    },
+    "disposition_code": {
+      "type": "string"
+    },
+    "appointment_category": {
+      "type": "string"
+    },
+    "task_category": {
+      "type": "string"
+    },
+    "processor_party_id": {
+      "type": "string"
+    },
+    "main_employee_responsible_party_id": {
+      "type": "string"
+    },
+    "main_account_party_id": {
+      "type": "string"
+    },
+    "main_contact_party_id": {
+      "type": "string"
+    },
+    "owner_party_id": {
+      "type": "string"
+    },
+    "organizer_party_id": {
+      "type": "string"
+    }
+  }
+}

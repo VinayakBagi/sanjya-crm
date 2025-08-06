@@ -1,0 +1,209 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_opportunities",
+  "info": {
+    "singularName": "crm-opportunity",
+    "pluralName": "crm-opportunities",
+    "displayName": "CRM Opportunity"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "object_id": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string",
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "processing_type_code": {
+      "type": "string"
+    },
+    "priority_code": {
+      "type": "string"
+    },
+    "group_code": {
+      "type": "string"
+    },
+    "origin_type_code": {
+      "type": "string"
+    },
+    "result_reason_code": {
+      "type": "string"
+    },
+    "process_status_valid_since_date": {
+      "type": "date"
+    },
+    "life_cycle_status_code": {
+      "type": "string"
+    },
+    "probability_percent": {
+      "type": "integer"
+    },
+    "sales_revenue_forecast_relevance_indicator": {
+      "type": "boolean"
+    },
+    "need_help": {
+      "type": "boolean"
+    },
+    "expected_processing_end_date": {
+      "type": "date"
+    },
+    "expected_processing_start_date": {
+      "type": "date"
+    },
+    "expected_revenue_end_date": {
+      "type": "date"
+    },
+    "expected_revenue_start_date": {
+      "type": "date"
+    },
+    "sales_forecast_category_code": {
+      "type": "string"
+    },
+    "sales_cycle_code": {
+      "type": "string"
+    },
+    "sales_cycle_phase_code": {
+      "type": "string"
+    },
+    "sales_cycle_phase_start_date": {
+      "type": "date"
+    },
+    "prospect_party_id": {
+      "type": "string"
+    },
+    "main_employee_responsible_party_id": {
+      "type": "string"
+    },
+    "sales_unit_party_id": {
+      "type": "string"
+    },
+    "sales_group_id": {
+      "type": "string"
+    },
+    "sales_office_id": {
+      "type": "string"
+    },
+    "sales_organisation_id": {
+      "type": "string"
+    },
+    "distribution_channel_code": {
+      "type": "string"
+    },
+    "division_code": {
+      "type": "string"
+    },
+    "sales_territory_id": {
+      "type": "string"
+    },
+    "bill_to_party_id": {
+      "type": "string"
+    },
+    "product_recepient_party_id": {
+      "type": "string"
+    },
+    "seller_party_id": {
+      "type": "string"
+    },
+    "payer_party_id": {
+      "type": "string"
+    },
+    "end_buyer_party_id": {
+      "type": "string"
+    },
+    "approver_party_id": {
+      "type": "string"
+    },
+    "phase_progress_evaluation_status_code": {
+      "type": "string"
+    },
+    "expected_revenue_amount": {
+      "type": "decimal"
+    },
+    "expected_revenue_amount_currency_code": {
+      "type": "string"
+    },
+    "total_expected_net_amount": {
+      "type": "decimal"
+    },
+    "total_expected_net_amount_amount_currency_code": {
+      "type": "string"
+    },
+    "weighted_expected_net_amount": {
+      "type": "decimal"
+    },
+    "weighted_expected_net_amount_currency_code": {
+      "type": "string"
+    },
+    "prospect_budget_amount": {
+      "type": "decimal"
+    },
+    "prospect_budget_amount_currency_code": {
+      "type": "string"
+    },
+    "primary_contact_party_id": {
+      "type": "string"
+    },
+    "external_user_status_code": {
+      "type": "string"
+    },
+    "header_revenue_schedule": {
+      "type": "boolean"
+    },
+    "approval_status_code": {
+      "type": "string"
+    },
+    "consistency_status_code": {
+      "type": "string"
+    },
+    "best_connected_colleague": {
+      "type": "string"
+    },
+    "score": {
+      "type": "decimal"
+    },
+    "deal_score": {
+      "type": "decimal"
+    },
+    "deal_score_reason": {
+      "type": "string"
+    },
+    "creation_date": {
+      "type": "date"
+    },
+    "last_change_date": {
+      "type": "date"
+    },
+    "creation_date_time": {
+      "type": "datetime"
+    },
+    "last_change_date_time": {
+      "type": "datetime"
+    },
+    "last_changed_by": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  }
+}

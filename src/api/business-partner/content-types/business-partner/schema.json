@@ -1,0 +1,199 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partners",
+  "info": {
+    "singularName": "business-partner",
+    "pluralName": "business-partners",
+    "displayName": "Business Partner"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "bp_id": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "bp_category": {
+      "type": "string"
+    },
+    "bp_full_name": {
+      "type": "string"
+    },
+    "bp_grouping": {
+      "type": "string"
+    },
+    "bp_uuid": {
+      "type": "string"
+    },
+    "org_bp_name1": {
+      "type": "string"
+    },
+    "org_bp_name2": {
+      "type": "string"
+    },
+    "org_bp_name3": {
+      "type": "string"
+    },
+    "org_bp_name4": {
+      "type": "string"
+    },
+    "search_term1": {
+      "type": "string"
+    },
+    "search_term2": {
+      "type": "string"
+    },
+    "gender_code_name": {
+      "type": "string"
+    },
+    "group_business_partner_name1": {
+      "type": "string"
+    },
+    "group_business_partner_name2": {
+      "type": "string"
+    },
+    "independent_address_id": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "international_location_number1": {
+      "type": "string"
+    },
+    "international_location_number2": {
+      "type": "string"
+    },
+    "international_location_number3": {
+      "type": "string"
+    },
+    "is_female": {
+      "type": "boolean"
+    },
+    "is_male": {
+      "type": "boolean"
+    },
+    "is_natural_person": {
+      "type": "boolean"
+    },
+    "is_sex_unknown": {
+      "type": "boolean"
+    },
+    "is_marked_for_archiving": {
+      "type": "boolean",
+      "default": false
+    },
+    "language": {
+      "type": "string"
+    },
+    "last_change_date": {
+      "type": "datetime"
+    },
+    "last_changed_by_user": {
+      "type": "string"
+    },
+    "last_change_time": {
+      "type": "datetime"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "legal_form": {
+      "type": "string"
+    },
+    "middle_name": {
+      "type": "string"
+    },
+    "name_country": {
+      "type": "string"
+    },
+    "name_format": {
+      "type": "string"
+    },
+    "organization_foundation_date": {
+      "type": "datetime"
+    },
+    "organization_liquidation_date": {
+      "type": "datetime"
+    },
+    "person_full_name": {
+      "type": "string"
+    },
+    "person_number": {
+      "type": "string"
+    },
+    "trading_partner": {
+      "type": "string"
+    },
+    "business_partner_print_format": {
+      "type": "string"
+    },
+    "business_partner_occupation": {
+      "type": "string"
+    },
+    "bus_part_marital_status": {
+      "type": "string"
+    },
+    "bus_part_nationality": {
+      "type": "string"
+    },
+    "business_partner_birth_name": {
+      "type": "string"
+    },
+    "business_partner_supplement_name": {
+      "type": "string"
+    },
+    "natural_person_employer_name": {
+      "type": "string"
+    },
+    "last_name_prefix": {
+      "type": "string"
+    },
+    "last_name_second_prefix": {
+      "type": "string"
+    },
+    "initials": {
+      "type": "string"
+    },
+    "bp_data_controller_is_not_required": {
+      "type": "boolean"
+    },
+    "business_partner_id_by_ext_system": {
+      "type": "string"
+    },
+    "correspondence_language": {
+      "type": "string"
+    },
+    "created_by_user": {
+      "type": "string"
+    },
+    "creation_date": {
+      "type": "datetime"
+    },
+    "creation_time": {
+      "type": "datetime"
+    },
+    "etag": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "form_of_address": {
+      "type": "string"
+    },
+    "c4c_account_id": {
+      "type": "string"
+    }
+  }
+}

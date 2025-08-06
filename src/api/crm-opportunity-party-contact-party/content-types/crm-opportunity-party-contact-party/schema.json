@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_opportunity_party_contact_parties",
+  "info": {
+    "singularName": "crm-opportunity-party-contact-party",
+    "pluralName": "crm-opportunity-party-contact-parties",
+    "displayName": "CRM Opportunity Party Contact Party"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "object_id": {
+      "type": "string"
+    },
+    "parent_object_id": {
+      "type": "string"
+    },
+    "opportunity_party_contact_main_indicator": {
+      "type": "boolean"
+    },
+    "opportunity_party_contact_party_id": {
+      "type": "string"
+    },
+    "role_code": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "uid"
+    },
+    "opportunity_id": {
+      "type": "string"
+    },
+    "party_contact_party_uuid": {
+      "type": "string"
+    },
+    "attitude_toward_opportunity_code": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_notes",
+  "info": {
+    "singularName": "crm-note",
+    "pluralName": "crm-notes",
+    "displayName": "CRM Note"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "note": {
+      "type": "text"
+    },
+    "is_global_note": {
+      "type": "boolean",
+      "default": false
+    },
+    "bp_id": {
+      "type": "string"
+    },
+    "activity_id": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crm_involved_parties",
+  "info": {
+    "singularName": "crm-involved-party",
+    "pluralName": "crm-involved-parties",
+    "displayName": "CRM Involved Party"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "party_uuid": {
+      "type": "string"
+    },
+    "party_type_code": {
+      "type": "string"
+    },
+    "role_category_code": {
+      "type": "string"
+    },
+    "role_code": {
+      "type": "string"
+    },
+    "main_indicator": {
+      "type": "boolean"
+    },
+    "party_id": {
+      "type": "string"
+    },
+    "activity_id": {
+      "type": "string"
+    }
+  }
+}
