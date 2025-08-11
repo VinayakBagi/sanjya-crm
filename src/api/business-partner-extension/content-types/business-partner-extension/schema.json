@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_extensions",
+  "info": {
+    "singularName": "business-partner-extension",
+    "pluralName": "business-partner-extensions",
+    "displayName": "Business Partner Extension"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "job_title": {
+      "type": "string"
+    },
+    "business_department": {
+      "type": "string"
+    },
+    "best_reached_by": {
+      "type": "string"
+    },
+    "web_registered": {
+      "type": "boolean"
+    },
+    "emails_opt_in": {
+      "type": "boolean"
+    },
+    "buying_guide_opt_in": {
+      "type": "boolean"
+    },
+    "print_marketing_opt_in": {
+      "type": "boolean"
+    },
+    "sms_promotions_opt_in": {
+      "type": "boolean"
+    },
+    "approver": {
+      "type": "boolean"
+    },
+    "punch_out_user": {
+      "type": "boolean"
+    },
+    "admin_user": {
+      "type": "boolean"
+    },
+    "hubspot_chg_flag": {
+      "type": "boolean"
+    },
+    "email_optcode_chg_ind": {
+      "type": "boolean"
+    },
+    "hs_update_flag": {
+      "type": "string"
+    },
+    "last_login": {
+      "type": "string"
+    },
+    "web_user_id": {
+      "type": "string"
+    },
+    "purchasing_control": {
+      "type": "string"
+    },
+    "native_language": {
+      "type": "string"
+    },
+    "bp_id": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "column": {
+        "unique": true
+      }
+    }
+  }
+}

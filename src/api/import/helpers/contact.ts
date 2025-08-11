@@ -111,9 +111,7 @@ const createOrUpdate = async (formData, create = true) => {
       if (bpExtension) {
         // **Update BP extension**
         await strapi
-          .query(
-            "api::business-partner-extension.business-partner-extension" as any
-          )
+          .query("api::business-partner-extension.business-partner-extension")
           .update({
             where: { id: bpExtension.id },
             data: {
@@ -134,9 +132,7 @@ const createOrUpdate = async (formData, create = true) => {
       } else {
         // **Create BP extension if not exists**
         await strapi
-          .query(
-            "api::business-partner-extension.business-partner-extension" as any
-          )
+          .query("api::business-partner-extension.business-partner-extension")
           .create({
             data: {
               bp_id: bp_person.bp_id,
@@ -165,13 +161,13 @@ const createOrUpdate = async (formData, create = true) => {
       };
 
       await strapi
-        .query("api::business-partner-role.business-partner-role" as any)
+        .query("api::business-partner-role.business-partner-role")
         .create({ data });
 
       // **Find or Create Business Partner Relationship**
       let bp_relationship = await strapi
         .query(
-          "api::business-partner-relationship.business-partner-relationship" as any
+          "api::business-partner-relationship.business-partner-relationship"
         )
         .findOne({
           where: {
@@ -192,7 +188,7 @@ const createOrUpdate = async (formData, create = true) => {
 
         bp_relationship = await strapi
           .query(
-            "api::business-partner-relationship.business-partner-relationship" as any
+            "api::business-partner-relationship.business-partner-relationship"
           )
           .create({ data });
       }
@@ -278,9 +274,7 @@ const createOrUpdate = async (formData, create = true) => {
         }
 
         await strapi
-          .query(
-            "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept" as any
-          )
+          .query("api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept")
           .create({ data });
       }
 
@@ -314,7 +308,7 @@ const createOrUpdate = async (formData, create = true) => {
       };
 
       const contact_address = await strapi
-        .query("api::business-partner-address.business-partner-address" as any)
+        .query("api::business-partner-address.business-partner-address")
         .create({ data });
 
       // Create Contact Info (Email, Phone, Fax, Website) linked to Relationship

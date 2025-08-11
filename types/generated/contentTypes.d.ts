@@ -511,6 +511,264 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_contact_to_func_and_depts';
+  info: {
+    displayName: 'bp-contact-to-func-and-dept';
+    pluralName: 'bp-contact-to-func-and-depts';
+    singularName: 'bp-contact-to-func-and-dept';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_company_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    contact_person_authority_type: Schema.Attribute.String;
+    contact_person_department: Schema.Attribute.String;
+    contact_person_department_name: Schema.Attribute.String;
+    contact_person_function: Schema.Attribute.String;
+    contact_person_function_name: Schema.Attribute.String;
+    contact_person_remark_text: Schema.Attribute.String;
+    contact_person_vip_type: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email_address: Schema.Attribute.String;
+    fax_number: Schema.Attribute.String;
+    fax_number_extension: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
+    phone_number: Schema.Attribute.String;
+    phone_number_extension: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    relationship_category: Schema.Attribute.String;
+    relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiBusinessPartnerAddressBusinessPartnerAddress
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_addresses';
+  info: {
+    displayName: 'Business Partner Address';
+    pluralName: 'business-partner-addresses';
+    singularName: 'business-partner-address';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    additional_street_prefix_name: Schema.Attribute.String;
+    additional_street_suffix_name: Schema.Attribute.String;
+    address_id_by_external_system: Schema.Attribute.String;
+    address_time_zone: Schema.Attribute.String;
+    authorization_group: Schema.Attribute.String;
+    bp_address_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    care_of_name: Schema.Attribute.String;
+    city_code: Schema.Attribute.String;
+    city_name: Schema.Attribute.String;
+    company_postal_code: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    county: Schema.Attribute.String;
+    county_code: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    delivery_service_number: Schema.Attribute.String;
+    delivery_service_type_code: Schema.Attribute.String;
+    district: Schema.Attribute.String;
+    form_of_address: Schema.Attribute.String;
+    full_name: Schema.Attribute.String;
+    home_city_name: Schema.Attribute.String;
+    house_number: Schema.Attribute.String;
+    house_number_supplement_text: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-address.business-partner-address'
+    >;
+    po_box: Schema.Attribute.String;
+    po_box_deviating_city_name: Schema.Attribute.String;
+    po_box_deviating_country: Schema.Attribute.String;
+    po_box_deviating_region: Schema.Attribute.String;
+    po_box_is_without_number: Schema.Attribute.Boolean;
+    po_box_lobby_name: Schema.Attribute.String;
+    po_box_postal_code: Schema.Attribute.String;
+    postal_code: Schema.Attribute.String;
+    prfrd_comm_medium_type: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.String;
+    street_name: Schema.Attribute.String;
+    township_code: Schema.Attribute.String;
+    township_name: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uuid: Schema.Attribute.String;
+    validity_end_date: Schema.Attribute.DateTime;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
+export interface ApiBusinessPartnerExtensionBusinessPartnerExtension
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_extensions';
+  info: {
+    displayName: 'Business Partner Extension';
+    pluralName: 'business-partner-extensions';
+    singularName: 'business-partner-extension';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    admin_user: Schema.Attribute.Boolean;
+    approver: Schema.Attribute.Boolean;
+    best_reached_by: Schema.Attribute.String;
+    bp_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    business_department: Schema.Attribute.String;
+    buying_guide_opt_in: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email_optcode_chg_ind: Schema.Attribute.Boolean;
+    emails_opt_in: Schema.Attribute.Boolean;
+    hs_update_flag: Schema.Attribute.String;
+    hubspot_chg_flag: Schema.Attribute.Boolean;
+    job_title: Schema.Attribute.String;
+    last_login: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-extension.business-partner-extension'
+    >;
+    native_language: Schema.Attribute.String;
+    print_marketing_opt_in: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    punch_out_user: Schema.Attribute.Boolean;
+    purchasing_control: Schema.Attribute.String;
+    sms_promotions_opt_in: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    web_registered: Schema.Attribute.Boolean;
+    web_user_id: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBusinessPartnerRelationshipBusinessPartnerRelationship
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_relationships';
+  info: {
+    displayName: 'Business Partner Relationship';
+    pluralName: 'business-partner-relationships';
+    singularName: 'business-partner-relationship';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_id1: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_id2: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_relationship_type: Schema.Attribute.String;
+    created_by_user: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    creation_date: Schema.Attribute.DateTime;
+    creation_time: Schema.Attribute.DateTime;
+    is_standard_relationship: Schema.Attribute.Boolean;
+    last_change_date: Schema.Attribute.DateTime;
+    last_change_time: Schema.Attribute.DateTime;
+    last_changed_by_user: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    relationship_category: Schema.Attribute.String;
+    relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
+export interface ApiBusinessPartnerRoleBusinessPartnerRole
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_roles';
+  info: {
+    displayName: 'Business Partner Role';
+    pluralName: 'business-partner-roles';
+    singularName: 'business-partner-role';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    authorization_group: Schema.Attribute.String;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_role: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-role.business-partner-role'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    valid_from: Schema.Attribute.DateTime;
+    valid_to: Schema.Attribute.DateTime;
+  };
+}
+
 export interface ApiBusinessPartnerBusinessPartner
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_partners';
@@ -1016,6 +1274,99 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiImportFileLogImportFileLog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'import_file_logs';
+  info: {
+    displayName: 'Import File Log';
+    pluralName: 'import-file-logs';
+    singularName: 'import-file-log';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::import-file-log.import-file-log'
+    >;
+    log_status: Schema.Attribute.Enumeration<['SUCCESS', 'FAILED']>;
+    message: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    row_number: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiImportFileStateImportFileState
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'import_file_states';
+  info: {
+    displayName: 'Import File State';
+    pluralName: 'import-file-states';
+    singularName: 'import-file-state';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    completed_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    failed_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    file_name: Schema.Attribute.String;
+    file_size: Schema.Attribute.Integer;
+    file_status: Schema.Attribute.Enumeration<
+      ['IN_PROGRESS', 'DONE', 'FAILED']
+    > &
+      Schema.Attribute.DefaultTo<'IN_PROGRESS'>;
+    file_type: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::import-file-state.import-file-state'
+    >;
+    message: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    success_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    table_name: Schema.Attribute.Enumeration<
+      [
+        'FG_CONTROL_MAIN',
+        'FG_CUSTOMER_BUSINESS',
+        'FG_PRODUCT_BUSINESS',
+        'FG_RELATIONSHIP',
+        'PRODUCT',
+        'PRODUCT_MEDIA',
+        'PRODUCT_SUGGESTION',
+        'CRM_ACTIVITY',
+        'CONTACT',
+      ]
+    >;
+    total_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1535,6 +1886,11 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept': ApiBpContactToFuncAndDeptBpContactToFuncAndDept;
+      'api::business-partner-address.business-partner-address': ApiBusinessPartnerAddressBusinessPartnerAddress;
+      'api::business-partner-extension.business-partner-extension': ApiBusinessPartnerExtensionBusinessPartnerExtension;
+      'api::business-partner-relationship.business-partner-relationship': ApiBusinessPartnerRelationshipBusinessPartnerRelationship;
+      'api::business-partner-role.business-partner-role': ApiBusinessPartnerRoleBusinessPartnerRole;
       'api::business-partner.business-partner': ApiBusinessPartnerBusinessPartner;
       'api::category.category': ApiCategoryCategory;
       'api::crm-activity.crm-activity': ApiCrmActivityCrmActivity;
@@ -1545,6 +1901,8 @@ declare module '@strapi/strapi' {
       'api::crm-opportunity-party.crm-opportunity-party': ApiCrmOpportunityPartyCrmOpportunityParty;
       'api::crm-opportunity.crm-opportunity': ApiCrmOpportunityCrmOpportunity;
       'api::global.global': ApiGlobalGlobal;
+      'api::import-file-log.import-file-log': ApiImportFileLogImportFileLog;
+      'api::import-file-state.import-file-state': ApiImportFileStateImportFileState;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -188,35 +188,33 @@ const validateRecord = async (
 
 const createFileState = async (data: any) => {
   return await strapi
-    .query("api::import-file-state.import-file-state" as any)
+    .query("api::import-file-state.import-file-state")
     .create({ data });
 };
 
 const updateFileState = async (id: any, { file_status, message }: any) => {
   const success_count = await strapi
-    .query("api::import-file-log.import-file-log" as any)
+    .query("api::import-file-log.import-file-log")
     .count({
       where: { import_file_id: id, log_status: "SUCCESS" },
     });
 
   const failed_count = await strapi
-    .query("api::import-file-log.import-file-log" as any)
+    .query("api::import-file-log.import-file-log")
     .count({
       where: { import_file_id: id, log_status: "FAILED" },
     });
 
-  return await strapi
-    .query("api::import-file-state.import-file-state" as any)
-    .update({
-      where: { id },
-      data: {
-        success_count,
-        failed_count,
-        completed_count: success_count + failed_count,
-        file_status,
-        message,
-      },
-    });
+  return await strapi.query("api::import-file-state.import-file-state").update({
+    where: { id },
+    data: {
+      success_count,
+      failed_count,
+      completed_count: success_count + failed_count,
+      file_status,
+      message,
+    },
+  });
 };
 
 const checkFlexgroupOperand = (record: any, data?: any) => {
@@ -424,9 +422,7 @@ const createActivityNewRecord = async (record: any, modelName: string) => {
 };
 
 const createLog = async (data: any) => {
-  await strapi
-    .query("api::import-file-log.import-file-log" as any)
-    .create({ data });
+  await strapi.query("api::import-file-log.import-file-log").create({ data });
 };
 
 export {

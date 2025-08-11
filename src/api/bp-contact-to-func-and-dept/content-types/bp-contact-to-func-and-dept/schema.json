@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_contact_to_func_and_depts",
+  "info": {
+    "singularName": "bp-contact-to-func-and-dept",
+    "pluralName": "bp-contact-to-func-and-depts",
+    "displayName": "bp-contact-to-func-and-dept"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "validity_end_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "contact_person_department": {
+      "type": "string"
+    },
+    "contact_person_authority_type": {
+      "type": "string"
+    },
+    "contact_person_function": {
+      "type": "string"
+    },
+    "contact_person_function_name": {
+      "type": "string"
+    },
+    "contact_person_remark_text": {
+      "type": "string"
+    },
+    "contact_person_vip_type": {
+      "type": "boolean",
+      "default": false
+    },
+    "email_address": {
+      "type": "string"
+    },
+    "fax_number": {
+      "type": "string"
+    },
+    "fax_number_extension": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "phone_number_extension": {
+      "type": "string"
+    },
+    "relationship_category": {
+      "type": "string"
+    },
+    "contact_person_department_name": {
+      "type": "string"
+    },
+    "bp_person_id": {
+      "type": "string",
+      "required": true
+    },
+    "bp_company_id": {
+      "type": "string",
+      "required": true
+    },
+    "relationship_number": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

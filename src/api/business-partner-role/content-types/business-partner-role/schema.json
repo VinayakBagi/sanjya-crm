@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_roles",
+  "info": {
+    "singularName": "business-partner-role",
+    "pluralName": "business-partner-roles",
+    "displayName": "Business Partner Role"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "bp_role": {
+      "type": "string",
+      "required": true
+    },
+    "valid_from": {
+      "type": "datetime"
+    },
+    "valid_to": {
+      "type": "datetime"
+    },
+    "authorization_group": {
+      "type": "string"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_relationships",
+  "info": {
+    "singularName": "business-partner-relationship",
+    "pluralName": "business-partner-relationships",
+    "displayName": "Business Partner Relationship"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "relationship_number": {
+      "type": "string",
+      "required": true
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "validity_end_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "is_standard_relationship": {
+      "type": "boolean"
+    },
+    "relationship_category": {
+      "type": "string"
+    },
+    "bp_relationship_type": {
+      "type": "string"
+    },
+    "created_by_user": {
+      "type": "string"
+    },
+    "creation_date": {
+      "type": "datetime"
+    },
+    "creation_time": {
+      "type": "datetime"
+    },
+    "last_changed_by_user": {
+      "type": "string"
+    },
+    "last_change_date": {
+      "type": "datetime"
+    },
+    "last_change_time": {
+      "type": "datetime"
+    },
+    "bp_id1": {
+      "type": "string",
+      "required": true
+    },
+    "bp_id2": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

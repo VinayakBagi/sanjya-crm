@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "import_file_states",
+  "info": {
+    "singularName": "import-file-state",
+    "pluralName": "import-file-states",
+    "displayName": "Import File State"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "file_name": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "file_size": {
+      "type": "integer"
+    },
+    "table_name": {
+      "type": "enumeration",
+      "enum": [
+        "FG_CONTROL_MAIN",
+        "FG_CUSTOMER_BUSINESS",
+        "FG_PRODUCT_BUSINESS",
+        "FG_RELATIONSHIP",
+        "PRODUCT",
+        "PRODUCT_MEDIA",
+        "PRODUCT_SUGGESTION",
+        "CRM_ACTIVITY",
+        "CONTACT"
+      ]
+    },
+    "file_status": {
+      "type": "enumeration",
+      "enum": ["IN_PROGRESS", "DONE", "FAILED"],
+      "default": "IN_PROGRESS"
+    },
+    "total_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "success_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "failed_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "completed_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

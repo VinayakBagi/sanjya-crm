@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "import_file_logs",
+  "info": {
+    "singularName": "import-file-log",
+    "pluralName": "import-file-logs",
+    "displayName": "Import File Log"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "row_number": {
+      "type": "integer"
+    },
+    "log_status": {
+      "type": "enumeration",
+      "enum": ["SUCCESS", "FAILED"]
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "json"
+    }
+  }
+}

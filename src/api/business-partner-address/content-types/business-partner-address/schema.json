@@ -1,0 +1,139 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_addresses",
+  "info": {
+    "singularName": "business-partner-address",
+    "pluralName": "business-partner-addresses",
+    "displayName": "Business Partner Address"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "bp_address_id": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "address_time_zone": {
+      "type": "string"
+    },
+    "city_name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "house_number": {
+      "type": "string"
+    },
+    "po_box": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "street_name": {
+      "type": "string"
+    },
+    "additional_street_prefix_name": {
+      "type": "string"
+    },
+    "additional_street_suffix_name": {
+      "type": "string"
+    },
+    "address_id_by_external_system": {
+      "type": "string"
+    },
+    "authorization_group": {
+      "type": "string"
+    },
+    "care_of_name": {
+      "type": "string"
+    },
+    "city_code": {
+      "type": "string"
+    },
+    "company_postal_code": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "county_code": {
+      "type": "string"
+    },
+    "delivery_service_number": {
+      "type": "string"
+    },
+    "delivery_service_type_code": {
+      "type": "string"
+    },
+    "form_of_address": {
+      "type": "string"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "home_city_name": {
+      "type": "string"
+    },
+    "house_number_supplement_text": {
+      "type": "string"
+    },
+    "po_box_deviating_city_name": {
+      "type": "string"
+    },
+    "po_box_deviating_country": {
+      "type": "string"
+    },
+    "po_box_deviating_region": {
+      "type": "string"
+    },
+    "po_box_is_without_number": {
+      "type": "boolean"
+    },
+    "po_box_lobby_name": {
+      "type": "string"
+    },
+    "po_box_postal_code": {
+      "type": "string"
+    },
+    "prfrd_comm_medium_type": {
+      "type": "string"
+    },
+    "township_code": {
+      "type": "string"
+    },
+    "township_name": {
+      "type": "string"
+    },
+    "validity_end_date": {
+      "type": "datetime"
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
