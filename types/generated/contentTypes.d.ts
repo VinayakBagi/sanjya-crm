@@ -802,6 +802,7 @@ export interface ApiBusinessPartnerBusinessPartner
     business_partner_print_format: Schema.Attribute.String;
     business_partner_supplement_name: Schema.Attribute.String;
     c4c_account_id: Schema.Attribute.String;
+    conference_room: Schema.Attribute.String;
     correspondence_language: Schema.Attribute.String;
     created_by_user: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -809,8 +810,10 @@ export interface ApiBusinessPartnerBusinessPartner
       Schema.Attribute.Private;
     creation_date: Schema.Attribute.DateTime;
     creation_time: Schema.Attribute.DateTime;
+    date_opened: Schema.Attribute.DateTime;
     etag: Schema.Attribute.String;
     first_name: Schema.Attribute.String;
+    fitness_center_gym: Schema.Attribute.String;
     form_of_address: Schema.Attribute.String;
     gender_code_name: Schema.Attribute.String;
     group_business_partner_name1: Schema.Attribute.String;
@@ -852,9 +855,16 @@ export interface ApiBusinessPartnerBusinessPartner
     organization_liquidation_date: Schema.Attribute.DateTime;
     person_full_name: Schema.Attribute.String;
     person_number: Schema.Attribute.String;
+    pool: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    purchasing_control: Schema.Attribute.String;
+    renovation_date: Schema.Attribute.String;
+    restaurant: Schema.Attribute.String;
+    role: Schema.Attribute.String;
     search_term1: Schema.Attribute.String;
     search_term2: Schema.Attribute.String;
+    seasonal_close_date: Schema.Attribute.String;
+    seasonal_open_date: Schema.Attribute.String;
     trading_partner: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1301,6 +1311,10 @@ export interface ApiImportFileLogImportFileLog
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     data: Schema.Attribute.JSON;
+    import_file_id: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::import-file-state.import-file-state'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1350,6 +1364,10 @@ export interface ApiImportFileStateImportFileState
       'oneToMany',
       'api::import-file-state.import-file-state'
     >;
+    logs: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::import-file-log.import-file-log'
+    >;
     message: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     success_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
@@ -1364,6 +1382,7 @@ export interface ApiImportFileStateImportFileState
         'PRODUCT_SUGGESTION',
         'CRM_ACTIVITY',
         'CONTACT',
+        'BUSINESS_PARTNER',
       ]
     >;
     total_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;

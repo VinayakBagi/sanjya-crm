@@ -35,7 +35,8 @@
         "PRODUCT_MEDIA",
         "PRODUCT_SUGGESTION",
         "CRM_ACTIVITY",
-        "CONTACT"
+        "CONTACT",
+        "BUSINESS_PARTNER"
       ]
     },
     "file_status": {
@@ -61,6 +62,12 @@
     },
     "message": {
       "type": "string"
+    },
+    "logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::import-file-log.import-file-log",
+      "mappedBy": "import_file_id"
     }
   }
 }

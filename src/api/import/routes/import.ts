@@ -81,5 +81,23 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: "POST",
+      path: "/import/account",
+      handler: "import.account",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
+      method: "POST",
+      path: "/import/prospect",
+      handler: "import.prospect",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };

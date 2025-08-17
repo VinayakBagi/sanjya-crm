@@ -194,6 +194,36 @@
     },
     "c4c_account_id": {
       "type": "string"
+    },
+    "conference_room": {
+      "type": "string"
+    },
+    "date_opened": {
+      "type": "datetime"
+    },
+    "restaurant": {
+      "type": "string"
+    },
+    "fitness_center_gym": {
+      "type": "string"
+    },
+    "pool": {
+      "type": "string"
+    },
+    "purchasing_control": {
+      "type": "string"
+    },
+    "renovation_date": {
+      "type": "string"
+    },
+    "seasonal_close_date": {
+      "type": "string"
+    },
+    "seasonal_open_date": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
     }
   }
 }

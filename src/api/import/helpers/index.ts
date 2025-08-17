@@ -176,6 +176,10 @@ const validateRecord = async (
       }
       break;
 
+    case "business-partner":
+      if (!record.Account_ID) missingFields.push("Account_ID");
+      break;
+
     default:
       return Promise.resolve({
         valid: false,
@@ -333,6 +337,21 @@ const findExistingRecord = async (record: any, modelName: string) => {
             where: {
               bp_id: record.Contact_ID,
             },
+          });
+        break;
+      case "business-partner":
+        data = await strapi
+          .query(`api::business-partner.business-partner`)
+          .findOne({
+            where: {
+              bp_id: record.Account_ID,
+              // roles: {
+              //   bp_role: record.Role,
+              // },
+            },
+            // populate: {
+            //   roles: true,
+            // },
           });
         break;
       default:
