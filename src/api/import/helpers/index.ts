@@ -106,7 +106,8 @@ const chunk = (array: any[], size: number): any[][] => {
 
 const validateRecord = async (
   record: any,
-  modelName: string
+  modelName: string,
+  type?: string
 ): Promise<{ valid: boolean; missingFields: string[] }> => {
   const missingFields: string[] = [];
 
@@ -177,7 +178,8 @@ const validateRecord = async (
       break;
 
     case "business-partner":
-      if (!record.Account_ID) missingFields.push("Account_ID");
+      const fieldToCheck = type === "account" ? "Account_ID" : "Prospect_ID";
+      if (!record[fieldToCheck]) missingFields.push(fieldToCheck);
       break;
 
     default:
@@ -237,7 +239,11 @@ const checkFlexgroupOperand = (record: any, data?: any) => {
 };
 
 // Find existing record in the table based on primary keys or unique fields
-const findExistingRecord = async (record: any, modelName: string) => {
+const findExistingRecord = async (
+  record: any,
+  modelName: string,
+  type?: string
+) => {
   let data: any = null;
   try {
     switch (modelName) {
@@ -344,7 +350,8 @@ const findExistingRecord = async (record: any, modelName: string) => {
           .query(`api::business-partner.business-partner`)
           .findOne({
             where: {
-              bp_id: record.Account_ID,
+              bp_id:
+                type === "account" ? record.Account_ID : record.Prospect_ID,
               // roles: {
               //   bp_role: record.Role,
               // },

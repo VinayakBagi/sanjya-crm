@@ -50,25 +50,62 @@ const mapping = {
     country: "CountryRegion",
   },
   "business-partner": {
-    bp_id: "Account_ID",
-    role: "Role",
-    conference_room: "Conference_Room", // Yes/No
-    date_opened: "Date_Opened",
-    fitness_center_gym: "Fitness_Center_Gym", // Yes/No
-    language: "Native_Language", // EN/HI
-    pool: "Pool", // Yes/No
-    purchasing_control: "Purchasing_Control", // Z001
-    renovation_date: "Renovation_Date",
-    restaurant: "Restaurant", // Yes/No
-    seasonal_close_date: "Seasonal_Close_Date", // January
-    seasonal_open_date: "Seasonal_Open_Date", // January
+    account: {
+      bp_id: "Account_ID",
+      role: "Role",
+      conference_room: "Conference_Room", // Yes/No
+      date_opened: "Date_Opened",
+      fitness_center: "Fitness_Center_Gym", // Yes/No
+      language: "Native_Language", // EN/HI
+      pool: "Pool", // Yes/No
+      purchasing_control: "Purchasing_Control", // Z001
+      renovation_date: "Renovation_Date",
+      restaurant: "Restaurant", // Yes/No
+      seasonal_close_date: "Seasonal_Close_Date", // January
+      seasonal_open_date: "Seasonal_Open_Date", // January
+    },
+    prospect: {
+      bp_id: "Prospect_ID",
+      role: "Role",
+      bp_full_name: "Name",
+      country: "CountryRegion",
+      region: "State",
+      house_number: "House_Number",
+      street_name: "Street",
+      district: "District",
+      city_name: "City",
+      postal_code: "Postal_Code",
+      address_time_zone: "Time_Zone", // from business-partner-addresse
+      phone_number: "Phone",
+      mobile: "Mobile",
+      email_address: "EMail", // from bp-email-address table
+      website_url: "Web_Site", // from bp-home-page-url
+
+      language: "Language", // from business-partner
+
+      native_language: "Native_Language", // from business_partner_extension table
+      purchasing_control: "Purchasing_Control", // from business_partner_extension table
+
+      conference_room: "Conference_Room", // from bp_marketing_attribute table
+      date_opened: "Date_Opened", // from bp_marketing_attribute table
+      fitness_center: "Fitness_Center_Gym", // from bp_marketing_attribute table
+      pool: "Pool", // from bp_marketing_attribute table
+      renovation_date: "Renovation_Date", // from bp_marketing_attribute table
+      restaurant: "Restaurant", // from bp_marketing_attribute table
+      seasonal_close_date: "Seasonal_Close_Date", // from bp_marketing_attribute table
+      seasonal_open_date: "Seasonal_Open_Date", // from bp_marketing_attribute table
+    },
   },
 };
 
-const mapRecordFields = (record: { [key: string]: any }, modelName: string) => {
-  const modelMapping = mapping[modelName];
+const mapRecordFields = (
+  record: { [key: string]: any },
+  modelName: string,
+  type?: string
+) => {
+  const modelMapping = type ? mapping[modelName][type] : mapping[modelName];
   console.log(record);
-  console.log(modelMapping);
+  console.log("modelMapping", modelMapping);
   if (!modelMapping) return record;
   const mappedRecord: any = {};
   Object.entries(modelMapping).forEach(

@@ -20,13 +20,14 @@ import {
   updateContactRecord,
 } from "../helpers/contact";
 
-const prospectRole = "Z0001";
+const prospectRole = "PRO001";
 
 // Efficiently process and import data in chunks
 const processInChunks = async (
   data: any[],
   importState: any,
-  tableName: string
+  tableName: string,
+  type?: string
 ) => {
   console.log(
     `[processInChunks] Starting chunked processing for table: ${tableName}, total records: ${data.length}`
@@ -40,7 +41,7 @@ const processInChunks = async (
       `[processInChunks] Processing batch ${i + 1}/${chunkedData.length}, batch size: ${chunkedData[i].length}`
     );
     const batch = chunkedData[i];
-    await processBatch(batch, importState, tableName);
+    await processBatch(batch, importState, tableName, type);
   }
   console.log(
     `[processInChunks] Finished processing all batches for table: ${tableName}`
@@ -51,7 +52,8 @@ const processInChunks = async (
 const processBatch = async (
   batch: any[],
   importState: any,
-  tableName: string
+  tableName: string,
+  type?: string
 ) => {
   console.log(
     `[processBatch] Processing batch for table: ${tableName}, batch size: ${batch.length}`
@@ -80,7 +82,11 @@ const processBatch = async (
       }
 
       // Validate record and skip if invalid
-      const { valid, missingFields } = await validateRecord(record, modelName);
+      const { valid, missingFields } = await validateRecord(
+        record,
+        modelName,
+        type
+      );
 
       if (!valid) {
         console.log(
@@ -97,7 +103,7 @@ const processBatch = async (
         continue;
       }
 
-      const existingRecord = await findExistingRecord(record, modelName);
+      const existingRecord = await findExistingRecord(record, modelName, type);
       console.log(
         `[processBatch] Record at index ${i} ${existingRecord ? "exists" : "does not exist"} in model: ${modelName}`
       );
@@ -143,14 +149,15 @@ const processBatch = async (
             await updateBusinessPartnerRecord(
               existingRecord.documentId,
               record,
-              modelName
+              modelName,
+              type
             );
           } else {
             console.log(
               `[processBatch] Creating new business partner record at index ${i}`
             );
             if (record.Role === prospectRole) {
-              await createBusinessPartnerNewRecord(record, modelName);
+              await createBusinessPartnerNewRecord(record, modelName, type);
             }
           }
           break;
@@ -204,7 +211,7 @@ const processBatch = async (
 };
 
 // Main function to handle file import
-const importData = async (ctx: any, tableName: string) => {
+const importData = async (ctx: any, tableName: string, type?: string) => {
   console.log(`[importData] Starting import for table: ${tableName}`);
   let importState = null;
 
@@ -255,7 +262,7 @@ const importData = async (ctx: any, tableName: string) => {
     );
 
     // Process the data in chunks
-    await processInChunks(parsedData, importState, tableName);
+    await processInChunks(parsedData, importState, tableName, type);
 
     const fileState = {
       file_status: "DONE",
@@ -323,10 +330,10 @@ module.exports = {
   },
 
   async account(ctx) {
-    await importData(ctx, "BUSINESS_PARTNER");
+    await importData(ctx, "BUSINESS_PARTNER", "account");
   },
 
   async prospect(ctx) {
-    await importData(ctx, "BUSINESS_PARTNER");
+    await importData(ctx, "BUSINESS_PARTNER", "prospect");
   },
 };
