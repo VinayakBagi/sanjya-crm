@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-home-page-url",
     "pluralName": "bp-home-page-urls",
-    "displayName": "BP Home Page URL"
+    "displayName": "Business Partner Home Page URL"
   },
   "options": {
     "draftAndPublish": false
@@ -45,6 +45,18 @@
     },
     "address_communication_remark_text": {
       "type": "text"
+    },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "home_page_urls"
+    },
+    "bp_contact_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "inversedBy": "home_page_urls"
     }
   }
 }

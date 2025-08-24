@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-address-usage",
     "pluralName": "bp-address-usages",
-    "displayName": "BP Address Usage"
+    "displayName": "Business Partner Address Usage"
   },
   "options": {
     "draftAndPublish": false
@@ -37,9 +37,21 @@
       "type": "string",
       "required": true
     },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "address_usages"
+    },
     "bp_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "address_usages"
     }
   }
 }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-intl-address-version",
     "pluralName": "bp-intl-address-versions",
-    "displayName": "BP intl Address Version"
+    "displayName": "Business Partner International Address Version"
   },
   "options": {
     "draftAndPublish": false
@@ -166,6 +166,12 @@
     "bp_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "bp_intl_address_versions"
     }
   }
 }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-addr-depdnt-intl-loc-number",
     "pluralName": "bp-addr-depdnt-intl-loc-numbers",
-    "displayName": "BP Address-Dependent International Location Number (ILN)"
+    "displayName": "Business Partner Address-Dependent International Location Number (ILN)"
   },
   "options": {
     "draftAndPublish": false
@@ -28,8 +28,21 @@
       "type": "string",
       "required": true
     },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "intl_loc_number"
+    },
     "bp_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "intl_loc_number"
     }
-  }}
+  }
+}

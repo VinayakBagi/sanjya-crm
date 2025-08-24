@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-phone-number",
     "pluralName": "bp-phone-numbers",
-    "displayName": "BP Phone Number"
+    "displayName": "Business Partner Phone Number"
   },
   "options": {
     "draftAndPublish": false
@@ -47,6 +47,18 @@
     },
     "address_communication_remark_text": {
       "type": "text"
+    },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "phone_numbers"
+    },
+    "bp_contact_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "inversedBy": "phone_numbers"
     }
   }
 }

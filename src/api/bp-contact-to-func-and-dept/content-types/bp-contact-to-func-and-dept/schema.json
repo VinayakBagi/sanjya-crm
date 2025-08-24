@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-contact-to-func-and-dept",
     "pluralName": "bp-contact-to-func-and-depts",
-    "displayName": "BP Contact Person Function and Department"
+    "displayName": "Business Partner Contact Person Function and Department"
   },
   "options": {
     "draftAndPublish": false
@@ -63,13 +63,43 @@
       "type": "string",
       "required": true
     },
+    "business_partner_person": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_person_func_and_depts"
+    },
     "bp_company_id": {
       "type": "string",
       "required": true
     },
+    "business_partner_company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_company_func_and_depts"
+    },
     "relationship_number": {
       "type": "string",
       "required": true
+    },
+    "relationship": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-relationship.business-partner-relationship",
+      "inversedBy": "contact_func_and_dept_relationships"
+    },
+    "contact_person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "inversedBy": "person_func_and_dept"
+    },
+    "contact_company": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "inversedBy": "company_func_and_dept"
     }
   }
 }

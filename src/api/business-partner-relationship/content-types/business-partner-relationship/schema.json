@@ -57,9 +57,39 @@
       "type": "string",
       "required": true
     },
+    "business_partner1": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "relationships1"
+    },
     "bp_id2": {
       "type": "string",
       "required": true
+    },
+    "business_partner2": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "relationships2"
+    },
+    "contact_relationships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "mappedBy": "relationship"
+    },
+    "contact_func_and_dept_relationships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept",
+      "mappedBy": "relationship"
+    },
+    "bp_contact_to_address_relationships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "mappedBy": "relationship"
     }
   }
 }

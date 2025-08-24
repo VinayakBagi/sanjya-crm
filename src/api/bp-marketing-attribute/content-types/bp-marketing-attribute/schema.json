@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-marketing-attribute",
     "pluralName": "bp-marketing-attributes",
-    "displayName": "BP Marketing Attribute"
+    "displayName": "Business Partner Marketing Attribute"
   },
   "options": {
     "draftAndPublish": false
@@ -14,7 +14,7 @@
       "localized": true
     }
   },
-    "attributes": {
+  "attributes": {
     "gym": {
       "type": "string"
     },
@@ -49,6 +49,12 @@
       "column": {
         "unique": true
       }
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "marketing_attributes"
     }
   }
 }

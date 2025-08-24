@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-credit-worthiness",
     "pluralName": "bp-credit-worthinesses",
-    "displayName": "BP Credit Worthiness"
+    "displayName": "Business Partner Credit Worthiness"
   },
   "options": {
     "draftAndPublish": false
@@ -67,6 +67,12 @@
       "column": {
         "unique": true
       }
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "credit_worthiness"
     }
   }
 }

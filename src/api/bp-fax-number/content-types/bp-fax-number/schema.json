@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-fax-number",
     "pluralName": "bp-fax-numbers",
-    "displayName": "BP Fax Number"
+    "displayName": "Business Partner Fax Number"
   },
   "options": {
     "draftAndPublish": false
@@ -45,6 +45,18 @@
     },
     "address_communication_remark_text": {
       "type": "text"
+    },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "fax_numbers"
+    },
+    "bp_contact_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "inversedBy": "fax_numbers"
     }
   }
 }

@@ -14,7 +14,7 @@
       "localized": true
     }
   },
-    "attributes": {
+  "attributes": {
     "validity_end_date": {
       "type": "datetime",
       "required": true
@@ -32,15 +32,55 @@
       "type": "string",
       "required": true
     },
-    
+    "business_partner_person": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_persons"
+    },
     "bp_company_id": {
       "type": "string",
       "required": true
     },
-    
+    "business_partner_company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_companies"
+    },
     "relationship_number": {
       "type": "string",
       "required": true
+    },
+    "relationship": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-relationship.business-partner-relationship",
+      "inversedBy": "contact_relationships"
+    },
+    "person_func_and_dept": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept",
+      "mappedBy": "contact_person"
+    },
+    "company_func_and_dept": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept",
+      "mappedBy": "contact_company"
+    },
+    "person_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "mappedBy": "contact_person_address"
+    },
+    "company_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "mappedBy": "contact_company_address"
     }
   }
 }

@@ -76,6 +76,12 @@
       "column": {
         "unique": true
       }
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "bp_extension"
     }
   }
 }

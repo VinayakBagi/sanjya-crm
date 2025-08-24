@@ -515,7 +515,7 @@ export interface ApiBpAddrDepdntIntlLocNumberBpAddrDepdntIntlLocNumber
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_addr_depdnt_intl_loc_numbers';
   info: {
-    displayName: 'BP Address-Dependent International Location Number (ILN)';
+    displayName: 'Business Partner Address-Dependent International Location Number (ILN)';
     pluralName: 'bp-addr-depdnt-intl-loc-numbers';
     singularName: 'bp-addr-depdnt-intl-loc-number';
   };
@@ -530,6 +530,14 @@ export interface ApiBpAddrDepdntIntlLocNumberBpAddrDepdntIntlLocNumber
   attributes: {
     bp_address_id: Schema.Attribute.String & Schema.Attribute.Required;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -552,7 +560,7 @@ export interface ApiBpAddressUsageBpAddressUsage
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_address_usages';
   info: {
-    displayName: 'BP Address Usage';
+    displayName: 'Business Partner Address Usage';
     pluralName: 'bp-address-usages';
     singularName: 'bp-address-usage';
   };
@@ -569,6 +577,14 @@ export interface ApiBpAddressUsageBpAddressUsage
     authorization_group: Schema.Attribute.String;
     bp_address_id: Schema.Attribute.String & Schema.Attribute.Required;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -592,7 +608,7 @@ export interface ApiBpContactToAddressBpContactToAddress
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_contact_to_addresses';
   info: {
-    displayName: 'BP Contact To Address';
+    displayName: 'Business Partner Contact To Address';
     pluralName: 'bp-contact-to-addresses';
     singularName: 'bp-contact-to-address';
   };
@@ -615,10 +631,26 @@ export interface ApiBpContactToAddressBpContactToAddress
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner_company: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner_person: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     care_of_name: Schema.Attribute.String;
     city_code: Schema.Attribute.String;
     city_name: Schema.Attribute.String;
     company_postal_code: Schema.Attribute.String;
+    contact_company_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-contact.business-partner-contact'
+    >;
+    contact_person_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-contact.business-partner-contact'
+    >;
     contact_person_building: Schema.Attribute.String;
     contact_person_prfrd_comm_medium: Schema.Attribute.String;
     contact_relationship_department: Schema.Attribute.String;
@@ -632,10 +664,22 @@ export interface ApiBpContactToAddressBpContactToAddress
     delivery_service_number: Schema.Attribute.String;
     delivery_service_type_code: Schema.Attribute.String;
     district: Schema.Attribute.String;
+    emails: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-email-address.bp-email-address'
+    >;
+    fax_numbers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-fax-number.bp-fax-number'
+    >;
     floor: Schema.Attribute.String;
     form_of_address: Schema.Attribute.String;
     full_name: Schema.Attribute.String;
     home_city_name: Schema.Attribute.String;
+    home_page_urls: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-home-page-url.bp-home-page-url'
+    >;
     house_number: Schema.Attribute.String;
     house_number_supplement_text: Schema.Attribute.String;
     inhouse_mail: Schema.Attribute.String;
@@ -646,6 +690,10 @@ export interface ApiBpContactToAddressBpContactToAddress
       'api::bp-contact-to-address.bp-contact-to-address'
     >;
     person: Schema.Attribute.String;
+    phone_numbers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-phone-number.bp-phone-number'
+    >;
     po_box: Schema.Attribute.String;
     po_box_deviating_city_name: Schema.Attribute.String;
     po_box_deviating_country: Schema.Attribute.String;
@@ -658,6 +706,10 @@ export interface ApiBpContactToAddressBpContactToAddress
     prfrd_comm_medium_type: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.String;
+    relationship: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
     relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
     room_number: Schema.Attribute.String;
     street_name: Schema.Attribute.String;
@@ -676,7 +728,7 @@ export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_contact_to_func_and_depts';
   info: {
-    displayName: 'BP Contact Person Function and Department';
+    displayName: 'Business Partner Contact Person Function and Department';
     pluralName: 'bp-contact-to-func-and-depts';
     singularName: 'bp-contact-to-func-and-dept';
   };
@@ -691,6 +743,22 @@ export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
   attributes: {
     bp_company_id: Schema.Attribute.String & Schema.Attribute.Required;
     bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner_company: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner_person: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    contact_company: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner-contact.business-partner-contact'
+    >;
+    contact_person: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner-contact.business-partner-contact'
+    >;
     contact_person_authority_type: Schema.Attribute.String;
     contact_person_department: Schema.Attribute.String;
     contact_person_department_name: Schema.Attribute.String;
@@ -713,6 +781,10 @@ export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
     phone_number: Schema.Attribute.String;
     phone_number_extension: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    relationship: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
     relationship_category: Schema.Attribute.String;
     relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -726,7 +798,7 @@ export interface ApiBpCreditWorthinessBpCreditWorthiness
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_credit_worthinesses';
   info: {
-    displayName: 'BP Credit Worthiness';
+    displayName: 'Business Partner Credit Worthiness';
     pluralName: 'bp-credit-worthinesses';
     singularName: 'bp-credit-worthiness';
   };
@@ -752,6 +824,10 @@ export interface ApiBpCreditWorthinessBpCreditWorthiness
     bp_legal_proceeding_status: Schema.Attribute.String;
     bp_lgl_proceeding_initiation_date: Schema.Attribute.DateTime;
     bus_part_credit_standing: Schema.Attribute.String;
+    business_partner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner.business-partner'
+    >;
     business_partner_bankruptcy_date: Schema.Attribute.DateTime;
     business_partner_is_bankrupt: Schema.Attribute.Boolean;
     business_partner_is_under_oath: Schema.Attribute.Boolean;
@@ -776,7 +852,7 @@ export interface ApiBpEmailAddressBpEmailAddress
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_email_addresses';
   info: {
-    displayName: 'BP Email Address';
+    displayName: 'Business Partner Email Address';
     pluralName: 'bp-email-addresses';
     singularName: 'bp-email-address';
   };
@@ -791,6 +867,14 @@ export interface ApiBpEmailAddressBpEmailAddress
   attributes: {
     address_communication_remark_text: Schema.Attribute.Text;
     address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_contact_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -815,7 +899,7 @@ export interface ApiBpEmailAddressBpEmailAddress
 export interface ApiBpFaxNumberBpFaxNumber extends Struct.CollectionTypeSchema {
   collectionName: 'bp_fax_numbers';
   info: {
-    displayName: 'BP Fax Number';
+    displayName: 'Business Partner Fax Number';
     pluralName: 'bp-fax-numbers';
     singularName: 'bp-fax-number';
   };
@@ -830,6 +914,14 @@ export interface ApiBpFaxNumberBpFaxNumber extends Struct.CollectionTypeSchema {
   attributes: {
     address_communication_remark_text: Schema.Attribute.Text;
     address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_contact_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -857,7 +949,7 @@ export interface ApiBpHomePageUrlBpHomePageUrl
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_home_page_urls';
   info: {
-    displayName: 'BP Home Page URL';
+    displayName: 'Business Partner Home Page URL';
     pluralName: 'bp-home-page-urls';
     singularName: 'bp-home-page-url';
   };
@@ -872,6 +964,14 @@ export interface ApiBpHomePageUrlBpHomePageUrl
   attributes: {
     address_communication_remark_text: Schema.Attribute.Text;
     address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_contact_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -899,7 +999,7 @@ export interface ApiBpIntlAddressVersionBpIntlAddressVersion
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_intl_address_versions';
   info: {
-    displayName: 'BP intl Address Version';
+    displayName: 'Business Partner International Address Version';
     pluralName: 'bp-intl-address-versions';
     singularName: 'bp-intl-address-version';
   };
@@ -924,6 +1024,10 @@ export interface ApiBpIntlAddressVersionBpIntlAddressVersion
     address_time_zone: Schema.Attribute.String;
     addressee_full_name: Schema.Attribute.String;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     care_of_name: Schema.Attribute.String;
     city_name: Schema.Attribute.String;
     city_number: Schema.Attribute.String;
@@ -983,7 +1087,7 @@ export interface ApiBpMarketingAttributeBpMarketingAttribute
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_marketing_attributes';
   info: {
-    displayName: 'BP Marketing Attribute';
+    displayName: 'Business Partner Marketing Attribute';
     pluralName: 'bp-marketing-attributes';
     singularName: 'bp-marketing-attribute';
   };
@@ -999,6 +1103,10 @@ export interface ApiBpMarketingAttributeBpMarketingAttribute
     bp_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    business_partner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner.business-partner'
+    >;
     conference_room: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1027,7 +1135,7 @@ export interface ApiBpPhoneNumberBpPhoneNumber
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_phone_numbers';
   info: {
-    displayName: 'BP Phone Number';
+    displayName: 'Business Partner Phone Number';
     pluralName: 'bp-phone-numbers';
     singularName: 'bp-phone-number';
   };
@@ -1042,6 +1150,14 @@ export interface ApiBpPhoneNumberBpPhoneNumber
   attributes: {
     address_communication_remark_text: Schema.Attribute.Text;
     address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_contact_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    business_partner_address: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-address.business-partner-address'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1069,6 +1185,7 @@ export interface ApiBusinessPartnerAddressBusinessPartnerAddress
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_partner_addresses';
   info: {
+    description: '';
     displayName: 'Business Partner Address';
     pluralName: 'business-partner-addresses';
     singularName: 'business-partner-address';
@@ -1086,11 +1203,19 @@ export interface ApiBusinessPartnerAddressBusinessPartnerAddress
     additional_street_suffix_name: Schema.Attribute.String;
     address_id_by_external_system: Schema.Attribute.String;
     address_time_zone: Schema.Attribute.String;
+    address_usages: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-address-usage.bp-address-usage'
+    >;
     authorization_group: Schema.Attribute.String;
     bp_address_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     care_of_name: Schema.Attribute.String;
     city_code: Schema.Attribute.String;
     city_name: Schema.Attribute.String;
@@ -1104,15 +1229,35 @@ export interface ApiBusinessPartnerAddressBusinessPartnerAddress
     delivery_service_number: Schema.Attribute.String;
     delivery_service_type_code: Schema.Attribute.String;
     district: Schema.Attribute.String;
+    emails: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-email-address.bp-email-address'
+    >;
+    fax_numbers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-fax-number.bp-fax-number'
+    >;
     form_of_address: Schema.Attribute.String;
     full_name: Schema.Attribute.String;
     home_city_name: Schema.Attribute.String;
+    home_page_urls: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-home-page-url.bp-home-page-url'
+    >;
     house_number: Schema.Attribute.String;
     house_number_supplement_text: Schema.Attribute.String;
+    intl_loc_number: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::business-partner-address.business-partner-address'
+    >;
+    phone_numbers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-phone-number.bp-phone-number'
     >;
     po_box: Schema.Attribute.String;
     po_box_deviating_city_name: Schema.Attribute.String;
@@ -1164,6 +1309,10 @@ export interface ApiBusinessPartnerBankBusinessPartnerBank
     bank_name: Schema.Attribute.String;
     bank_number: Schema.Attribute.String;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     city_name: Schema.Attribute.String;
     collection_auth_ind: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
@@ -1205,6 +1354,22 @@ export interface ApiBusinessPartnerContactBusinessPartnerContact
   attributes: {
     bp_company_id: Schema.Attribute.String & Schema.Attribute.Required;
     bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner_company: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner_person: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    company_addresses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    company_func_and_dept: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1214,7 +1379,19 @@ export interface ApiBusinessPartnerContactBusinessPartnerContact
       'oneToMany',
       'api::business-partner-contact.business-partner-contact'
     >;
+    person_addresses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    person_func_and_dept: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    relationship: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
     relationship_category: Schema.Attribute.String;
     relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -1249,6 +1426,10 @@ export interface ApiBusinessPartnerExtensionBusinessPartnerExtension
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     business_department: Schema.Attribute.String;
+    business_partner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner.business-partner'
+    >;
     buying_guide_opt_in: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1301,6 +1482,10 @@ export interface ApiBusinessPartnerIdentificationBusinessPartnerIdentification
     bp_identification_number: Schema.Attribute.String;
     bp_identification_type: Schema.Attribute.String;
     bp_idn_nmbr_issuing_institute: Schema.Attribute.String;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     country: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1338,6 +1523,10 @@ export interface ApiBusinessPartnerPaymentCardBusinessPartnerPaymentCard
   };
   attributes: {
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     card_description: Schema.Attribute.String;
     card_holder: Schema.Attribute.String;
     card_issue_date: Schema.Attribute.DateTime;
@@ -1384,9 +1573,29 @@ export interface ApiBusinessPartnerRelationshipBusinessPartnerRelationship
     };
   };
   attributes: {
+    bp_contact_to_address_relationships: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
     bp_id1: Schema.Attribute.String & Schema.Attribute.Required;
     bp_id2: Schema.Attribute.String & Schema.Attribute.Required;
     bp_relationship_type: Schema.Attribute.String;
+    business_partner1: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    business_partner2: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
+    contact_func_and_dept_relationships: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
+    contact_relationships: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-contact.business-partner-contact'
+    >;
     created_by_user: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1433,6 +1642,10 @@ export interface ApiBusinessPartnerRoleBusinessPartnerRole
     authorization_group: Schema.Attribute.String;
     bp_id: Schema.Attribute.String & Schema.Attribute.Required;
     bp_role: Schema.Attribute.String & Schema.Attribute.Required;
+    business_partner: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::business-partner.business-partner'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1454,6 +1667,7 @@ export interface ApiBusinessPartnerBusinessPartner
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_partners';
   info: {
+    description: '';
     displayName: 'Business Partner';
     pluralName: 'business-partners';
     singularName: 'business-partner';
@@ -1467,13 +1681,33 @@ export interface ApiBusinessPartnerBusinessPartner
     };
   };
   attributes: {
+    address_usages: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-address-usage.bp-address-usage'
+    >;
+    addresses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-address.business-partner-address'
+    >;
+    banks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-bank.business-partner-bank'
+    >;
     bp_category: Schema.Attribute.String;
     bp_data_controller_is_not_required: Schema.Attribute.Boolean;
+    bp_extension: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::business-partner-extension.business-partner-extension'
+    >;
     bp_full_name: Schema.Attribute.String;
     bp_grouping: Schema.Attribute.String;
     bp_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    bp_intl_address_versions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-intl-address-version.bp-intl-address-version'
+    >;
     bp_uuid: Schema.Attribute.String;
     bus_part_marital_status: Schema.Attribute.String;
     bus_part_nationality: Schema.Attribute.String;
@@ -1483,7 +1717,31 @@ export interface ApiBusinessPartnerBusinessPartner
     business_partner_print_format: Schema.Attribute.String;
     business_partner_supplement_name: Schema.Attribute.String;
     c4c_account_id: Schema.Attribute.String;
-    conference_room: Schema.Attribute.String;
+    c4c_contact_id: Schema.Attribute.String;
+    contact_companies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-contact.business-partner-contact'
+    >;
+    contact_company_addresses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    contact_company_func_and_depts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
+    contact_person_addresses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    contact_person_func_and_depts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept'
+    >;
+    contact_persons: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-contact.business-partner-contact'
+    >;
     correspondence_language: Schema.Attribute.String;
     created_by_user: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -1491,20 +1749,30 @@ export interface ApiBusinessPartnerBusinessPartner
       Schema.Attribute.Private;
     creation_date: Schema.Attribute.DateTime;
     creation_time: Schema.Attribute.DateTime;
-    date_opened: Schema.Attribute.DateTime;
+    credit_worthiness: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-credit-worthiness.bp-credit-worthiness'
+    >;
     etag: Schema.Attribute.String;
     first_name: Schema.Attribute.String;
-    fitness_center_gym: Schema.Attribute.String;
     form_of_address: Schema.Attribute.String;
     gender_code_name: Schema.Attribute.String;
     group_business_partner_name1: Schema.Attribute.String;
     group_business_partner_name2: Schema.Attribute.String;
+    identifications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-identification.business-partner-identification'
+    >;
     independent_address_id: Schema.Attribute.String;
     industry: Schema.Attribute.String;
     initials: Schema.Attribute.String;
     international_location_number1: Schema.Attribute.String;
     international_location_number2: Schema.Attribute.String;
     international_location_number3: Schema.Attribute.String;
+    intl_loc_number: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number'
+    >;
     is_female: Schema.Attribute.Boolean;
     is_male: Schema.Attribute.Boolean;
     is_marked_for_archiving: Schema.Attribute.Boolean &
@@ -1524,6 +1792,10 @@ export interface ApiBusinessPartnerBusinessPartner
       'oneToMany',
       'api::business-partner.business-partner'
     >;
+    marketing_attributes: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bp-marketing-attribute.bp-marketing-attribute'
+    >;
     middle_name: Schema.Attribute.String;
     name_country: Schema.Attribute.String;
     name_format: Schema.Attribute.String;
@@ -1534,18 +1806,27 @@ export interface ApiBusinessPartnerBusinessPartner
     org_bp_name4: Schema.Attribute.String;
     organization_foundation_date: Schema.Attribute.DateTime;
     organization_liquidation_date: Schema.Attribute.DateTime;
+    payment_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-payment-card.business-partner-payment-card'
+    >;
     person_full_name: Schema.Attribute.String;
     person_number: Schema.Attribute.String;
-    pool: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    purchasing_control: Schema.Attribute.String;
-    renovation_date: Schema.Attribute.String;
-    restaurant: Schema.Attribute.String;
-    role: Schema.Attribute.String;
+    relationships1: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
+    relationships2: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-relationship.business-partner-relationship'
+    >;
+    roles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-role.business-partner-role'
+    >;
     search_term1: Schema.Attribute.String;
     search_term2: Schema.Attribute.String;
-    seasonal_close_date: Schema.Attribute.String;
-    seasonal_open_date: Schema.Attribute.String;
     trading_partner: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

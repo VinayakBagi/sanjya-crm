@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-contact-to-address",
     "pluralName": "bp-contact-to-addresses",
-    "displayName": "BP Contact To Address"
+    "displayName": "Business Partner Contact To Address"
   },
   "options": {
     "draftAndPublish": false
@@ -14,7 +14,7 @@
       "localized": true
     }
   },
-    "attributes": {
+  "attributes": {
     "bp_contact_address_id": {
       "type": "string",
       "required": true,
@@ -164,13 +164,67 @@
       "type": "string",
       "required": true
     },
+    "relationship": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-relationship.business-partner-relationship",
+      "inversedBy": "bp_contact_to_address_relationships"
+    },
     "bp_person_id": {
       "type": "string",
       "required": true
     },
+    "business_partner_person": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_person_addresses"
+    },
     "bp_company_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner_company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "contact_company_addresses"
+    },
+    "contact_person_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "inversedBy": "person_addresses"
+    },
+    "contact_company_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "inversedBy": "company_addresses"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-email-address.bp-email-address",
+      "mappedBy": "bp_contact_address"
+    },
+    "fax_numbers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-fax-number.bp-fax-number",
+      "mappedBy": "bp_contact_address"
+    },
+    "home_page_urls": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-home-page-url.bp-home-page-url",
+      "mappedBy": "bp_contact_address"
+    },
+    "phone_numbers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-phone-number.bp-phone-number",
+      "mappedBy": "bp_contact_address"
     }
   }
 }

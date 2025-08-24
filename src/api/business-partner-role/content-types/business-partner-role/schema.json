@@ -14,7 +14,7 @@
       "localized": true
     }
   },
-    "attributes": {
+  "attributes": {
     "bp_role": {
       "type": "string",
       "required": true
@@ -31,6 +31,12 @@
     "bp_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "roles"
     }
   }
 }

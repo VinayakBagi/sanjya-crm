@@ -4,7 +4,8 @@
   "info": {
     "singularName": "business-partner",
     "pluralName": "business-partners",
-    "displayName": "Business Partner"
+    "displayName": "Business Partner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -195,35 +196,122 @@
     "c4c_account_id": {
       "type": "string"
     },
-    "conference_room": {
+    "c4c_contact_id": {
       "type": "string"
     },
-    "date_opened": {
-      "type": "datetime"
+    "addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-address.business-partner-address",
+      "mappedBy": "business_partner"
     },
-    "restaurant": {
-      "type": "string"
+    "credit_worthiness": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-credit-worthiness.bp-credit-worthiness",
+      "mappedBy": "business_partner"
     },
-    "fitness_center_gym": {
-      "type": "string"
+    "bp_intl_address_versions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-intl-address-version.bp-intl-address-version",
+      "mappedBy": "business_partner"
     },
-    "pool": {
-      "type": "string"
+    "intl_loc_number": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number",
+      "mappedBy": "business_partner"
     },
-    "purchasing_control": {
-      "type": "string"
+    "address_usages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-address-usage.bp-address-usage",
+      "mappedBy": "business_partner"
     },
-    "renovation_date": {
-      "type": "string"
+    "roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-role.business-partner-role",
+      "mappedBy": "business_partner"
     },
-    "seasonal_close_date": {
-      "type": "string"
+    "payment_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-payment-card.business-partner-payment-card",
+      "mappedBy": "business_partner"
     },
-    "seasonal_open_date": {
-      "type": "string"
+    "banks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-bank.business-partner-bank",
+      "mappedBy": "business_partner"
     },
-    "role": {
-      "type": "string"
+    "contact_persons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "mappedBy": "business_partner_person"
+    },
+    "contact_companies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-contact.business-partner-contact",
+      "mappedBy": "business_partner_company"
+    },
+    "contact_person_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "mappedBy": "business_partner_person"
+    },
+    "contact_company_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "mappedBy": "business_partner_company"
+    },
+    "contact_person_func_and_depts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept",
+      "mappedBy": "business_partner_person"
+    },
+    "contact_company_func_and_depts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept",
+      "mappedBy": "business_partner_company"
+    },
+    "relationships1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-relationship.business-partner-relationship",
+      "mappedBy": "business_partner1"
+    },
+    "relationships2": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-relationship.business-partner-relationship",
+      "mappedBy": "business_partner2"
+    },
+    "identifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-partner-identification.business-partner-identification",
+      "mappedBy": "business_partner"
+    },
+    "marketing_attributes": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-marketing-attribute.bp-marketing-attribute",
+      "mappedBy": "business_partner"
+    },
+    "bp_extension": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business-partner-extension.business-partner-extension",
+      "mappedBy": "business_partner"
     }
   }
 }

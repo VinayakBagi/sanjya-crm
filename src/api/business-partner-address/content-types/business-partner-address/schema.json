@@ -4,7 +4,8 @@
   "info": {
     "singularName": "business-partner-address",
     "pluralName": "business-partner-addresses",
-    "displayName": "Business Partner Address"
+    "displayName": "Business Partner Address",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -14,7 +15,7 @@
       "localized": true
     }
   },
-    "attributes": {
+  "attributes": {
     "bp_address_id": {
       "type": "string",
       "required": true,
@@ -134,6 +135,48 @@
     "bp_id": {
       "type": "string",
       "required": true
+    },
+    "business_partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner.business-partner",
+      "inversedBy": "addresses"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-email-address.bp-email-address",
+      "mappedBy": "business_partner_address"
+    },
+    "fax_numbers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-fax-number.bp-fax-number",
+      "mappedBy": "business_partner_address"
+    },
+    "home_page_urls": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-home-page-url.bp-home-page-url",
+      "mappedBy": "business_partner_address"
+    },
+    "phone_numbers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-phone-number.bp-phone-number",
+      "mappedBy": "business_partner_address"
+    },
+    "intl_loc_number": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number",
+      "mappedBy": "business_partner_address"
+    },
+    "address_usages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bp-address-usage.bp-address-usage",
+      "mappedBy": "business_partner_address"
     }
   }
 }

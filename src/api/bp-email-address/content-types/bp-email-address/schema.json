@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-email-address",
     "pluralName": "bp-email-addresses",
-    "displayName": "BP Email Address"
+    "displayName": "Business Partner Email Address"
   },
   "options": {
     "draftAndPublish": false
@@ -39,6 +39,18 @@
     },
     "address_communication_remark_text": {
       "type": "text"
+    },
+    "business_partner_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-partner-address.business-partner-address",
+      "inversedBy": "emails"
+    },
+    "bp_contact_address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bp-contact-to-address.bp-contact-to-address",
+      "inversedBy": "emails"
     }
   }
 }
