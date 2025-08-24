@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_addr_depdnt_intl_loc_numbers",
+  "info": {
+    "singularName": "bp-addr-depdnt-intl-loc-number",
+    "pluralName": "bp-addr-depdnt-intl-loc-numbers",
+    "displayName": "BP Address-Dependent International Location Number (ILN)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "international_location_number_1": {
+      "type": "string"
+    },
+    "international_location_number_2": {
+      "type": "string"
+    },
+    "international_location_number_3": {
+      "type": "string"
+    },
+    "bp_address_id": {
+      "type": "string",
+      "required": true
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }}

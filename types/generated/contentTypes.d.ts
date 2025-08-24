@@ -511,11 +511,172 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBpAddrDepdntIntlLocNumberBpAddrDepdntIntlLocNumber
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_addr_depdnt_intl_loc_numbers';
+  info: {
+    displayName: 'BP Address-Dependent International Location Number (ILN)';
+    pluralName: 'bp-addr-depdnt-intl-loc-numbers';
+    singularName: 'bp-addr-depdnt-intl-loc-number';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    international_location_number_1: Schema.Attribute.String;
+    international_location_number_2: Schema.Attribute.String;
+    international_location_number_3: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBpAddressUsageBpAddressUsage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_address_usages';
+  info: {
+    displayName: 'BP Address Usage';
+    pluralName: 'bp-address-usages';
+    singularName: 'bp-address-usage';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_usage: Schema.Attribute.String & Schema.Attribute.Required;
+    authorization_group: Schema.Attribute.String;
+    bp_address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-address-usage.bp-address-usage'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    standard_usage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
+export interface ApiBpContactToAddressBpContactToAddress
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_contact_to_addresses';
+  info: {
+    displayName: 'BP Contact To Address';
+    pluralName: 'bp-contact-to-addresses';
+    singularName: 'bp-contact-to-address';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    additional_street_prefix_name: Schema.Attribute.String;
+    additional_street_suffix_name: Schema.Attribute.String;
+    address_number: Schema.Attribute.String;
+    address_representation_code: Schema.Attribute.String;
+    address_time_zone: Schema.Attribute.String;
+    bp_company_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_contact_address_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    care_of_name: Schema.Attribute.String;
+    city_code: Schema.Attribute.String;
+    city_name: Schema.Attribute.String;
+    company_postal_code: Schema.Attribute.String;
+    contact_person_building: Schema.Attribute.String;
+    contact_person_prfrd_comm_medium: Schema.Attribute.String;
+    contact_relationship_department: Schema.Attribute.String;
+    contact_relationship_function: Schema.Attribute.String;
+    correspondence_short_name: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    county: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    delivery_service_number: Schema.Attribute.String;
+    delivery_service_type_code: Schema.Attribute.String;
+    district: Schema.Attribute.String;
+    floor: Schema.Attribute.String;
+    form_of_address: Schema.Attribute.String;
+    full_name: Schema.Attribute.String;
+    home_city_name: Schema.Attribute.String;
+    house_number: Schema.Attribute.String;
+    house_number_supplement_text: Schema.Attribute.String;
+    inhouse_mail: Schema.Attribute.String;
+    language: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-contact-to-address.bp-contact-to-address'
+    >;
+    person: Schema.Attribute.String;
+    po_box: Schema.Attribute.String;
+    po_box_deviating_city_name: Schema.Attribute.String;
+    po_box_deviating_country: Schema.Attribute.String;
+    po_box_deviating_region: Schema.Attribute.String;
+    po_box_is_without_number: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    po_box_lobby_name: Schema.Attribute.String;
+    po_box_postal_code: Schema.Attribute.String;
+    postal_code: Schema.Attribute.String;
+    prfrd_comm_medium_type: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.String;
+    relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
+    room_number: Schema.Attribute.String;
+    street_name: Schema.Attribute.String;
+    street_prefix_name: Schema.Attribute.String;
+    street_suffix_name: Schema.Attribute.String;
+    tax_jurisdiction: Schema.Attribute.String;
+    transport_zone: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
   extends Struct.CollectionTypeSchema {
   collectionName: 'bp_contact_to_func_and_depts';
   info: {
-    displayName: 'bp-contact-to-func-and-dept';
+    displayName: 'BP Contact Person Function and Department';
     pluralName: 'bp-contact-to-func-and-depts';
     singularName: 'bp-contact-to-func-and-dept';
   };
@@ -558,6 +719,349 @@ export interface ApiBpContactToFuncAndDeptBpContactToFuncAndDept
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiBpCreditWorthinessBpCreditWorthiness
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_credit_worthinesses';
+  info: {
+    displayName: 'BP Credit Worthiness';
+    pluralName: 'bp-credit-worthinesses';
+    singularName: 'bp-credit-worthiness';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_crdt_wrthnss_access_chk_is_active: Schema.Attribute.Boolean;
+    bp_credit_standing_comment: Schema.Attribute.Text;
+    bp_credit_standing_date: Schema.Attribute.DateTime;
+    bp_credit_standing_rating: Schema.Attribute.String;
+    bp_credit_standing_status: Schema.Attribute.String;
+    bp_foreclosure_date: Schema.Attribute.DateTime;
+    bp_foreclosure_is_initiated: Schema.Attribute.Boolean;
+    bp_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    bp_legal_proceeding_status: Schema.Attribute.String;
+    bp_lgl_proceeding_initiation_date: Schema.Attribute.DateTime;
+    bus_part_credit_standing: Schema.Attribute.String;
+    business_partner_bankruptcy_date: Schema.Attribute.DateTime;
+    business_partner_is_bankrupt: Schema.Attribute.Boolean;
+    business_partner_is_under_oath: Schema.Attribute.Boolean;
+    business_partner_oath_date: Schema.Attribute.DateTime;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    credit_rating_agency: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-credit-worthiness.bp-credit-worthiness'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBpEmailAddressBpEmailAddress
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_email_addresses';
+  info: {
+    displayName: 'BP Email Address';
+    pluralName: 'bp-email-addresses';
+    singularName: 'bp-email-address';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_communication_remark_text: Schema.Attribute.Text;
+    address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email_address: Schema.Attribute.Email;
+    is_default_email_address: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-email-address.bp-email-address'
+    >;
+    ordinal_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    person: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    search_email_address: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBpFaxNumberBpFaxNumber extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_fax_numbers';
+  info: {
+    displayName: 'BP Fax Number';
+    pluralName: 'bp-fax-numbers';
+    singularName: 'bp-fax-number';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_communication_remark_text: Schema.Attribute.Text;
+    address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fax_country: Schema.Attribute.String;
+    fax_number: Schema.Attribute.String;
+    fax_number_extension: Schema.Attribute.String;
+    international_fax_number: Schema.Attribute.String;
+    is_default_fax_number: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-fax-number.bp-fax-number'
+    >;
+    ordinal_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    person: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBpHomePageUrlBpHomePageUrl
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_home_page_urls';
+  info: {
+    displayName: 'BP Home Page URL';
+    pluralName: 'bp-home-page-urls';
+    singularName: 'bp-home-page-url';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_communication_remark_text: Schema.Attribute.Text;
+    address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_default_url_address: Schema.Attribute.Boolean &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-home-page-url.bp-home-page-url'
+    >;
+    ordinal_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    person: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    search_url_address: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url_field_length: Schema.Attribute.Integer;
+    validity_start_date: Schema.Attribute.DateTime;
+    website_url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBpIntlAddressVersionBpIntlAddressVersion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_intl_address_versions';
+  info: {
+    displayName: 'BP intl Address Version';
+    pluralName: 'bp-intl-address-versions';
+    singularName: 'bp-intl-address-version';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    address_id_by_external_system: Schema.Attribute.String;
+    address_person_id: Schema.Attribute.String;
+    address_representation_code: Schema.Attribute.String &
+      Schema.Attribute.Required;
+    address_search_term1: Schema.Attribute.String;
+    address_search_term2: Schema.Attribute.String;
+    address_time_zone: Schema.Attribute.String;
+    addressee_full_name: Schema.Attribute.String;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    care_of_name: Schema.Attribute.String;
+    city_name: Schema.Attribute.String;
+    city_number: Schema.Attribute.String;
+    company_postal_code: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    delivery_service_number: Schema.Attribute.String;
+    delivery_service_type_code: Schema.Attribute.String;
+    district_name: Schema.Attribute.String;
+    form_of_address: Schema.Attribute.String;
+    house_number: Schema.Attribute.String;
+    house_number_supplement_text: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-intl-address-version.bp-intl-address-version'
+    >;
+    organization_name1: Schema.Attribute.String;
+    organization_name2: Schema.Attribute.String;
+    organization_name3: Schema.Attribute.String;
+    organization_name4: Schema.Attribute.String;
+    person_family_name: Schema.Attribute.String;
+    person_given_name: Schema.Attribute.String;
+    po_box: Schema.Attribute.String;
+    po_box_deviating_city_name: Schema.Attribute.String;
+    po_box_deviating_country: Schema.Attribute.String;
+    po_box_deviating_region: Schema.Attribute.String;
+    po_box_is_without_number: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    po_box_lobby_name: Schema.Attribute.String;
+    po_box_postal_code: Schema.Attribute.String;
+    postal_code: Schema.Attribute.String;
+    prfrd_comm_medium_type: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.String;
+    secondary_region: Schema.Attribute.String;
+    secondary_region_name: Schema.Attribute.String;
+    street_name: Schema.Attribute.String;
+    street_prefix_name1: Schema.Attribute.String;
+    street_prefix_name2: Schema.Attribute.String;
+    street_suffix_name1: Schema.Attribute.String;
+    street_suffix_name2: Schema.Attribute.String;
+    tax_jurisdiction: Schema.Attribute.String;
+    tertiary_region: Schema.Attribute.String;
+    tertiary_region_name: Schema.Attribute.String;
+    transport_zone: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    village_name: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBpMarketingAttributeBpMarketingAttribute
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_marketing_attributes';
+  info: {
+    displayName: 'BP Marketing Attribute';
+    pluralName: 'bp-marketing-attributes';
+    singularName: 'bp-marketing-attribute';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    conference_room: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date_opened: Schema.Attribute.Date;
+    fitness_center: Schema.Attribute.String;
+    gym: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-marketing-attribute.bp-marketing-attribute'
+    >;
+    pool: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    renovation_date: Schema.Attribute.Date;
+    restaurant: Schema.Attribute.String;
+    seasonal_close_date: Schema.Attribute.String;
+    seasonal_open_date: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBpPhoneNumberBpPhoneNumber
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bp_phone_numbers';
+  info: {
+    displayName: 'BP Phone Number';
+    pluralName: 'bp-phone-numbers';
+    singularName: 'bp-phone-number';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address_communication_remark_text: Schema.Attribute.Text;
+    address_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    destination_location_country: Schema.Attribute.String;
+    international_phone_number: Schema.Attribute.String;
+    is_default_phone_number: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bp-phone-number.bp-phone-number'
+    >;
+    ordinal_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    person: Schema.Attribute.String & Schema.Attribute.Required;
+    phone_number: Schema.Attribute.String;
+    phone_number_extension: Schema.Attribute.String;
+    phone_number_type: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -633,6 +1137,94 @@ export interface ApiBusinessPartnerAddressBusinessPartnerAddress
   };
 }
 
+export interface ApiBusinessPartnerBankBusinessPartnerBank
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_banks';
+  info: {
+    displayName: 'Business Partner Bank';
+    pluralName: 'business-partner-banks';
+    singularName: 'business-partner-bank';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bank_account: Schema.Attribute.String;
+    bank_account_holder_name: Schema.Attribute.String;
+    bank_account_name: Schema.Attribute.String;
+    bank_account_reference_text: Schema.Attribute.String;
+    bank_control_key: Schema.Attribute.String;
+    bank_country_key: Schema.Attribute.String;
+    bank_identification: Schema.Attribute.String & Schema.Attribute.Required;
+    bank_name: Schema.Attribute.String;
+    bank_number: Schema.Attribute.String;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    city_name: Schema.Attribute.String;
+    collection_auth_ind: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    iban: Schema.Attribute.String;
+    iban_validity_start_date: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-bank.business-partner-bank'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    swift_code: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
+export interface ApiBusinessPartnerContactBusinessPartnerContact
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_contacts';
+  info: {
+    displayName: 'Business Partner Contact';
+    pluralName: 'business-partner-contacts';
+    singularName: 'business-partner-contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_company_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_person_id: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_standard_relationship: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-contact.business-partner-contact'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    relationship_category: Schema.Attribute.String;
+    relationship_number: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
 export interface ApiBusinessPartnerExtensionBusinessPartnerExtension
   extends Struct.CollectionTypeSchema {
   collectionName: 'business_partner_extensions';
@@ -683,6 +1275,95 @@ export interface ApiBusinessPartnerExtensionBusinessPartnerExtension
       Schema.Attribute.Private;
     web_registered: Schema.Attribute.Boolean;
     web_user_id: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBusinessPartnerIdentificationBusinessPartnerIdentification
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_identifications';
+  info: {
+    displayName: 'Business Partner Identification';
+    pluralName: 'business-partner-identifications';
+    singularName: 'business-partner-identification';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    authorization_group: Schema.Attribute.String;
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    bp_identification_entry_date: Schema.Attribute.DateTime;
+    bp_identification_number: Schema.Attribute.String;
+    bp_identification_type: Schema.Attribute.String;
+    bp_idn_nmbr_issuing_institute: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-identification.business-partner-identification'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_end_date: Schema.Attribute.DateTime;
+    validity_start_date: Schema.Attribute.DateTime;
+  };
+}
+
+export interface ApiBusinessPartnerPaymentCardBusinessPartnerPaymentCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_partner_payment_cards';
+  info: {
+    displayName: 'Business Partner Payment Card';
+    pluralName: 'business-partner-payment-cards';
+    singularName: 'business-partner-payment-card';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bp_id: Schema.Attribute.String & Schema.Attribute.Required;
+    card_description: Schema.Attribute.String;
+    card_holder: Schema.Attribute.String;
+    card_issue_date: Schema.Attribute.DateTime;
+    card_issuing_bank: Schema.Attribute.String;
+    card_number: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_standard_card: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-partner-payment-card.business-partner-payment-card'
+    >;
+    masked_card_number: Schema.Attribute.String;
+    payment_card_id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    payment_card_lock: Schema.Attribute.String;
+    payment_card_type: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validity_date: Schema.Attribute.DateTime;
+    validity_end_date: Schema.Attribute.DateTime;
   };
 }
 
@@ -1905,9 +2586,23 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::bp-addr-depdnt-intl-loc-number.bp-addr-depdnt-intl-loc-number': ApiBpAddrDepdntIntlLocNumberBpAddrDepdntIntlLocNumber;
+      'api::bp-address-usage.bp-address-usage': ApiBpAddressUsageBpAddressUsage;
+      'api::bp-contact-to-address.bp-contact-to-address': ApiBpContactToAddressBpContactToAddress;
       'api::bp-contact-to-func-and-dept.bp-contact-to-func-and-dept': ApiBpContactToFuncAndDeptBpContactToFuncAndDept;
+      'api::bp-credit-worthiness.bp-credit-worthiness': ApiBpCreditWorthinessBpCreditWorthiness;
+      'api::bp-email-address.bp-email-address': ApiBpEmailAddressBpEmailAddress;
+      'api::bp-fax-number.bp-fax-number': ApiBpFaxNumberBpFaxNumber;
+      'api::bp-home-page-url.bp-home-page-url': ApiBpHomePageUrlBpHomePageUrl;
+      'api::bp-intl-address-version.bp-intl-address-version': ApiBpIntlAddressVersionBpIntlAddressVersion;
+      'api::bp-marketing-attribute.bp-marketing-attribute': ApiBpMarketingAttributeBpMarketingAttribute;
+      'api::bp-phone-number.bp-phone-number': ApiBpPhoneNumberBpPhoneNumber;
       'api::business-partner-address.business-partner-address': ApiBusinessPartnerAddressBusinessPartnerAddress;
+      'api::business-partner-bank.business-partner-bank': ApiBusinessPartnerBankBusinessPartnerBank;
+      'api::business-partner-contact.business-partner-contact': ApiBusinessPartnerContactBusinessPartnerContact;
       'api::business-partner-extension.business-partner-extension': ApiBusinessPartnerExtensionBusinessPartnerExtension;
+      'api::business-partner-identification.business-partner-identification': ApiBusinessPartnerIdentificationBusinessPartnerIdentification;
+      'api::business-partner-payment-card.business-partner-payment-card': ApiBusinessPartnerPaymentCardBusinessPartnerPaymentCard;
       'api::business-partner-relationship.business-partner-relationship': ApiBusinessPartnerRelationshipBusinessPartnerRelationship;
       'api::business-partner-role.business-partner-role': ApiBusinessPartnerRoleBusinessPartnerRole;
       'api::business-partner.business-partner': ApiBusinessPartnerBusinessPartner;

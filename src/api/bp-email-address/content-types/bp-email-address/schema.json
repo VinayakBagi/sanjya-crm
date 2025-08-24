@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_email_addresses",
+  "info": {
+    "singularName": "bp-email-address",
+    "pluralName": "bp-email-addresses",
+    "displayName": "BP Email Address"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_id": {
+      "type": "string",
+      "required": true
+    },
+    "ordinal_number": {
+      "type": "integer",
+      "required": true
+    },
+    "person": {
+      "type": "string",
+      "required": true
+    },
+    "email_address": {
+      "type": "email"
+    },
+    "is_default_email_address": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_email_address": {
+      "type": "string"
+    },
+    "address_communication_remark_text": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_contacts",
+  "info": {
+    "singularName": "business-partner-contact",
+    "pluralName": "business-partner-contacts",
+    "displayName": "Business Partner Contact"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "validity_end_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "is_standard_relationship": {
+      "type": "boolean"
+    },
+    "relationship_category": {
+      "type": "string"
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "bp_person_id": {
+      "type": "string",
+      "required": true
+    },
+    
+    "bp_company_id": {
+      "type": "string",
+      "required": true
+    },
+    
+    "relationship_number": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

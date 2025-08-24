@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_identifications",
+  "info": {
+    "singularName": "business-partner-identification",
+    "pluralName": "business-partner-identifications",
+    "displayName": "Business Partner Identification"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "bp_identification_type": {
+      "type": "string"
+    },
+    "bp_identification_number": {
+      "type": "string"
+    },
+    "authorization_group": {
+      "type": "string"
+    },
+    "bp_idn_nmbr_issuing_institute": {
+      "type": "string"
+    },
+    "bp_identification_entry_date": {
+      "type": "datetime"
+    },
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "validity_end_date": {
+      "type": "datetime"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

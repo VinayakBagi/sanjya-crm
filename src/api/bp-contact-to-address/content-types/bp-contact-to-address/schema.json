@@ -1,0 +1,176 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_contact_to_addresses",
+  "info": {
+    "singularName": "bp-contact-to-address",
+    "pluralName": "bp-contact-to-addresses",
+    "displayName": "BP Contact To Address"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "bp_contact_address_id": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "validity_end_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "additional_street_prefix_name": {
+      "type": "string"
+    },
+    "additional_street_suffix_name": {
+      "type": "string"
+    },
+    "address_number": {
+      "type": "string"
+    },
+    "address_representation_code": {
+      "type": "string"
+    },
+    "address_time_zone": {
+      "type": "string"
+    },
+    "care_of_name": {
+      "type": "string"
+    },
+    "city_code": {
+      "type": "string"
+    },
+    "city_name": {
+      "type": "string"
+    },
+    "company_postal_code": {
+      "type": "string"
+    },
+    "contact_person_building": {
+      "type": "string"
+    },
+    "contact_person_prfrd_comm_medium": {
+      "type": "string"
+    },
+    "contact_relationship_department": {
+      "type": "string"
+    },
+    "contact_relationship_function": {
+      "type": "string"
+    },
+    "correspondence_short_name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "delivery_service_number": {
+      "type": "string"
+    },
+    "delivery_service_type_code": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "floor": {
+      "type": "string"
+    },
+    "form_of_address": {
+      "type": "string"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "home_city_name": {
+      "type": "string"
+    },
+    "house_number": {
+      "type": "string"
+    },
+    "house_number_supplement_text": {
+      "type": "string"
+    },
+    "inhouse_mail": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "po_box": {
+      "type": "string"
+    },
+    "po_box_deviating_city_name": {
+      "type": "string"
+    },
+    "po_box_deviating_country": {
+      "type": "string"
+    },
+    "po_box_deviating_region": {
+      "type": "string"
+    },
+    "po_box_is_without_number": {
+      "type": "boolean",
+      "default": false
+    },
+    "po_box_lobby_name": {
+      "type": "string"
+    },
+    "po_box_postal_code": {
+      "type": "string"
+    },
+    "person": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "prfrd_comm_medium_type": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "room_number": {
+      "type": "string"
+    },
+    "street_name": {
+      "type": "string"
+    },
+    "street_prefix_name": {
+      "type": "string"
+    },
+    "street_suffix_name": {
+      "type": "string"
+    },
+    "tax_jurisdiction": {
+      "type": "string"
+    },
+    "transport_zone": {
+      "type": "string"
+    },
+    "relationship_number": {
+      "type": "string",
+      "required": true
+    },
+    "bp_person_id": {
+      "type": "string",
+      "required": true
+    },
+    "bp_company_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

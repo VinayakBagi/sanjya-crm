@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_home_page_urls",
+  "info": {
+    "singularName": "bp-home-page-url",
+    "pluralName": "bp-home-page-urls",
+    "displayName": "BP Home Page URL"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_id": {
+      "type": "string",
+      "required": true
+    },
+    "is_default_url_address": {
+      "type": "boolean",
+      "required": true
+    },
+    "ordinal_number": {
+      "type": "integer",
+      "required": true
+    },
+    "person": {
+      "type": "string",
+      "required": true
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "search_url_address": {
+      "type": "string"
+    },
+    "url_field_length": {
+      "type": "integer"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "address_communication_remark_text": {
+      "type": "text"
+    }
+  }
+}

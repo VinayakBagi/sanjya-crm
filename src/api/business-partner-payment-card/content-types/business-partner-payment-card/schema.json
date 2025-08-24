@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_payment_cards",
+  "info": {
+    "singularName": "business-partner-payment-card",
+    "pluralName": "business-partner-payment-cards",
+    "displayName": "Business Partner Payment Card"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "payment_card_id": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "payment_card_type": {
+      "type": "string",
+      "required": true
+    },
+    "card_number": {
+      "type": "string",
+      "required": true
+    },
+    "is_standard_card": {
+      "type": "boolean"
+    },
+    "card_description": {
+      "type": "string"
+    },
+    "validity_date": {
+      "type": "datetime"
+    },
+    "validity_end_date": {
+      "type": "datetime"
+    },
+    "card_holder": {
+      "type": "string"
+    },
+    "card_issuing_bank": {
+      "type": "string"
+    },
+    "card_issue_date": {
+      "type": "datetime"
+    },
+    "payment_card_lock": {
+      "type": "string"
+    },
+    "masked_card_number": {
+      "type": "string"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

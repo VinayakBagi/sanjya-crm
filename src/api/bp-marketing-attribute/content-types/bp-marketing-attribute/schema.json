@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_marketing_attributes",
+  "info": {
+    "singularName": "bp-marketing-attribute",
+    "pluralName": "bp-marketing-attributes",
+    "displayName": "BP Marketing Attribute"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "gym": {
+      "type": "string"
+    },
+    "pool": {
+      "type": "string"
+    },
+    "restaurant": {
+      "type": "string"
+    },
+    "conference_room": {
+      "type": "string"
+    },
+    "fitness_center": {
+      "type": "string"
+    },
+    "date_opened": {
+      "type": "date"
+    },
+    "renovation_date": {
+      "type": "date"
+    },
+    "seasonal_open_date": {
+      "type": "string"
+    },
+    "seasonal_close_date": {
+      "type": "string"
+    },
+    "bp_id": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "column": {
+        "unique": true
+      }
+    }
+  }
+}

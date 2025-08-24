@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_fax_numbers",
+  "info": {
+    "singularName": "bp-fax-number",
+    "pluralName": "bp-fax-numbers",
+    "displayName": "BP Fax Number"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_id": {
+      "type": "string",
+      "required": true
+    },
+    "ordinal_number": {
+      "type": "integer",
+      "required": true
+    },
+    "person": {
+      "type": "string",
+      "required": true
+    },
+    "fax_country": {
+      "type": "string"
+    },
+    "fax_number": {
+      "type": "string"
+    },
+    "fax_number_extension": {
+      "type": "string"
+    },
+    "international_fax_number": {
+      "type": "string"
+    },
+    "is_default_fax_number": {
+      "type": "boolean",
+      "default": false
+    },
+    "address_communication_remark_text": {
+      "type": "text"
+    }
+  }
+}

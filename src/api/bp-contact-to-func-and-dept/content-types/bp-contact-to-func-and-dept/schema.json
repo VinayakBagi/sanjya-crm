@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bp-contact-to-func-and-dept",
     "pluralName": "bp-contact-to-func-and-depts",
-    "displayName": "bp-contact-to-func-and-dept"
+    "displayName": "BP Contact Person Function and Department"
   },
   "options": {
     "draftAndPublish": false

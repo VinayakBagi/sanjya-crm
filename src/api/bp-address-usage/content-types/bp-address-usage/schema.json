@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_address_usages",
+  "info": {
+    "singularName": "bp-address-usage",
+    "pluralName": "bp-address-usages",
+    "displayName": "BP Address Usage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_usage": {
+      "type": "string",
+      "required": true
+    },
+    "validity_end_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "authorization_group": {
+      "type": "string"
+    },
+    "standard_usage": {
+      "type": "boolean",
+      "default": false
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "bp_address_id": {
+      "type": "string",
+      "required": true
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

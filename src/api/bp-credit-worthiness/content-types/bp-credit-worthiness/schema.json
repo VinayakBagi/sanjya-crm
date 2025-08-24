@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_credit_worthinesses",
+  "info": {
+    "singularName": "bp-credit-worthiness",
+    "pluralName": "bp-credit-worthinesses",
+    "displayName": "BP Credit Worthiness"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "bus_part_credit_standing": {
+      "type": "string"
+    },
+    "bp_credit_standing_status": {
+      "type": "string"
+    },
+    "bp_legal_proceeding_status": {
+      "type": "string"
+    },
+    "bp_lgl_proceeding_initiation_date": {
+      "type": "datetime"
+    },
+    "business_partner_is_under_oath": {
+      "type": "boolean"
+    },
+    "business_partner_oath_date": {
+      "type": "datetime"
+    },
+    "business_partner_is_bankrupt": {
+      "type": "boolean"
+    },
+    "business_partner_bankruptcy_date": {
+      "type": "datetime"
+    },
+    "bp_foreclosure_is_initiated": {
+      "type": "boolean"
+    },
+    "bp_foreclosure_date": {
+      "type": "datetime"
+    },
+    "credit_rating_agency": {
+      "type": "string"
+    },
+    "bp_credit_standing_comment": {
+      "type": "text"
+    },
+    "bp_credit_standing_date": {
+      "type": "datetime"
+    },
+    "bp_credit_standing_rating": {
+      "type": "string"
+    },
+    "bp_crdt_wrthnss_access_chk_is_active": {
+      "type": "boolean"
+    },
+    "bp_id": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "column": {
+        "unique": true
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_phone_numbers",
+  "info": {
+    "singularName": "bp-phone-number",
+    "pluralName": "bp-phone-numbers",
+    "displayName": "BP Phone Number"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_id": {
+      "type": "string",
+      "required": true
+    },
+    "ordinal_number": {
+      "type": "integer",
+      "required": true
+    },
+    "person": {
+      "type": "string",
+      "required": true
+    },
+    "destination_location_country": {
+      "type": "string"
+    },
+    "international_phone_number": {
+      "type": "string"
+    },
+    "is_default_phone_number": {
+      "type": "boolean"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "phone_number_extension": {
+      "type": "string"
+    },
+    "phone_number_type": {
+      "type": "string"
+    },
+    "address_communication_remark_text": {
+      "type": "text"
+    }
+  }
+}

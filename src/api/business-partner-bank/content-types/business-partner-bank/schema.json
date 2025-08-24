@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_partner_banks",
+  "info": {
+    "singularName": "business-partner-bank",
+    "pluralName": "business-partner-banks",
+    "displayName": "Business Partner Bank"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+    "attributes": {
+    "bank_identification": {
+      "type": "string",
+      "required": true
+    },
+    "bank_account": {
+      "type": "string"
+    },
+    "bank_account_holder_name": {
+      "type": "string"
+    },
+    "bank_account_name": {
+      "type": "string"
+    },
+    "bank_account_reference_text": {
+      "type": "string"
+    },
+    "bank_control_key": {
+      "type": "string"
+    },
+    "bank_country_key": {
+      "type": "string"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "bank_number": {
+      "type": "string"
+    },
+    "city_name": {
+      "type": "string"
+    },
+    "collection_auth_ind": {
+      "type": "boolean"
+    },
+    "iban": {
+      "type": "string"
+    },
+    "iban_validity_start_date": {
+      "type": "datetime"
+    },
+    "swift_code": {
+      "type": "string"
+    },
+    "validity_end_date": {
+      "type": "datetime"
+    },
+    "validity_start_date": {
+      "type": "datetime"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

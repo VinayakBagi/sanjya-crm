@@ -1,0 +1,171 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_intl_address_versions",
+  "info": {
+    "singularName": "bp-intl-address-version",
+    "pluralName": "bp-intl-address-versions",
+    "displayName": "BP intl Address Version"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "address_id": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "column": {
+        "unique": true
+      }
+    },
+    "address_representation_code": {
+      "type": "string",
+      "required": true
+    },
+    "addressee_full_name": {
+      "type": "string"
+    },
+    "address_id_by_external_system": {
+      "type": "string"
+    },
+    "address_person_id": {
+      "type": "string"
+    },
+    "address_search_term1": {
+      "type": "string"
+    },
+    "address_search_term2": {
+      "type": "string"
+    },
+    "address_time_zone": {
+      "type": "string"
+    },
+    "care_of_name": {
+      "type": "string"
+    },
+    "city_name": {
+      "type": "string"
+    },
+    "city_number": {
+      "type": "string"
+    },
+    "company_postal_code": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "delivery_service_number": {
+      "type": "string"
+    },
+    "delivery_service_type_code": {
+      "type": "string"
+    },
+    "district_name": {
+      "type": "string"
+    },
+    "form_of_address": {
+      "type": "string"
+    },
+    "house_number": {
+      "type": "string"
+    },
+    "house_number_supplement_text": {
+      "type": "string"
+    },
+    "organization_name1": {
+      "type": "string"
+    },
+    "organization_name2": {
+      "type": "string"
+    },
+    "organization_name3": {
+      "type": "string"
+    },
+    "organization_name4": {
+      "type": "string"
+    },
+    "person_family_name": {
+      "type": "string"
+    },
+    "person_given_name": {
+      "type": "string"
+    },
+    "po_box": {
+      "type": "string"
+    },
+    "po_box_deviating_city_name": {
+      "type": "string"
+    },
+    "po_box_deviating_country": {
+      "type": "string"
+    },
+    "po_box_deviating_region": {
+      "type": "string"
+    },
+    "po_box_is_without_number": {
+      "type": "boolean",
+      "default": false
+    },
+    "po_box_lobby_name": {
+      "type": "string"
+    },
+    "po_box_postal_code": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "prfrd_comm_medium_type": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "secondary_region": {
+      "type": "string"
+    },
+    "secondary_region_name": {
+      "type": "string"
+    },
+    "street_name": {
+      "type": "string"
+    },
+    "street_prefix_name1": {
+      "type": "string"
+    },
+    "street_prefix_name2": {
+      "type": "string"
+    },
+    "street_suffix_name1": {
+      "type": "string"
+    },
+    "street_suffix_name2": {
+      "type": "string"
+    },
+    "tax_jurisdiction": {
+      "type": "string"
+    },
+    "tertiary_region": {
+      "type": "string"
+    },
+    "tertiary_region_name": {
+      "type": "string"
+    },
+    "transport_zone": {
+      "type": "string"
+    },
+    "village_name": {
+      "type": "string"
+    },
+    "bp_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
