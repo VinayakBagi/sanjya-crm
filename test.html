@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Owl Carousel CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <!-- Animate CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts Material Symbols -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- Common CSS (recreated based on typical login page styling) -->
+    <style>
+      /* Common CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Login Style CSS */
+      .login-sec {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .login-carousel {
+        flex: 1;
+        position: relative;
+        order: 1; /* Ensure carousel is on the left */
+        min-width: 50%;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+      }
+
+      .slider {
+        height: 100vh;
+      }
+
+      .slide-item {
+        height: 100vh;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .login-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        background: #ffffff;
+        order: 2; /* Ensure login form is on the right */
+      }
+
+      .login-header {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .login-logo {
+        margin-bottom: 1rem;
+      }
+
+      .login-logo img {
+        max-height: 60px;
+      }
+
+      .sign-up {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .sign-up-btn {
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .login-form-sec {
+        flex: 1;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .login-form-body {
+        width: 100%;
+      }
+
+      .login-form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .lm-header-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .lm-header-text {
+        color: #666;
+      }
+
+      .login-form {
+        margin-top: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+
+      .email-icon {
+        padding-right: 40px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23666'%3e%3cpath d='M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+      }
+
+      .frogot-p-link {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .frogot-p-link:hover {
+        text-decoration: underline;
+      }
+
+      .login-form button {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .login-form button:hover {
+        background: #0056b3;
+      }
+
+      .login-footer {
+        padding: 1.5rem 2rem;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .lf-copyright {
+        flex: 1;
+      }
+
+      .login-footer ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .login-footer a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      .login-footer a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+
+      .material-symbols-outlined,
+      .material-symbols-rounded {
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      .text-2xl {
+        font-size: 1.5rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .login-sec {
+          flex-direction: column;
+        }
+
+        .login-carousel {
+          height: 40vh;
+        }
+
+        .slider {
+          height: 40vh;
+        }
+
+        .slide-item {
+          height: 40vh;
+        }
+
+        .login-body {
+          max-width: 100%;
+        }
+
+        .login-footer {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+      }
+    </style>
+
+    <title>LOGIN PAGE</title>
+  </head>
+
+  <body>
+    <section class="login-sec">
+      <div class="login-carousel">
+        <div class="slider owl-carousel">
+          <div class="slide-item"></div>
+          <div class="slide-item"></div>
+        </div>
+      </div>
+      <div class="login-body">
+        <div class="login-header">
+          <div class="login-logo">
+            <a href="#"
+              ><img
+                src="data:image/svg+xml,%3csvg width='200' height='60' viewBox='0 0 200 60' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='200' height='60' rx='8' fill='%23007bff'/%3e%3ctext x='100' y='25' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='14' font-weight='700'%3eCONSOLIDATED%3c/text%3e%3ctext x='100' y='42' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='10' font-weight='500'%3eHOSPITALITY SUPPLIES%3c/text%3e%3c/svg%3e"
+                alt=""
+            /></a>
+          </div>
+          <!-- <div class="sign-up d-flex align-items-center justify-content-center">
+                    You don't have any account?
+                    <button
+                      type="button"
+                      class="sign-up-btn"
+                      onclick="location.href = 'sign-up.html';"
+                    >
+                      <span class="material-symbols-rounded text-2xl">person</span> Sign
+                      Up
+                    </button>
+                </div> -->
+        </div>
+
+        <div class="login-form-sec">
+          <div class="login-form-body">
+            <div id="api" role="main"></div>
+            <!-- <div class="login-form-header">
+                        <div class="lm-header-title">Sign in</div>
+                        <div class="lm-header-text">Sign in with your email address</div>
+                    </div>
+                    <div class="login-form">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label" for="username">Email Address</label>
+                                <input type="text" class="form-control email-icon" placeholder="Email Address"
+                                    id="username">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="username">Password</label>
+                                <input type="password" class="form-control email-icon" placeholder="Password" id="username">
+                            </div>
+                            <div class="form-group relative d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-1">
+                                </div>
+                                <a href="#" class="frogot-p-link">Forgot your password?</a>
+                            </div>
+                            <button type="button" onclick="location.href = 'sso-login.html';"> <span
+                                    class="material-symbols-outlined">key</span> Log in</button>
+                        </form>
+                    </div> -->
+          </div>
+        </div>
+
+        <div class="login-footer">
+          <div class="lf-copyright">
+            © 2024 Consolidated Hospitality Supplies
+          </div>
+          <ul>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      // Basic script functionality (recreated)
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          items: 1,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          dots: true,
+          nav: false,
+        });
+      });
+    </script>
+  </body>
+</html>
